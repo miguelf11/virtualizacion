@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'IndexController');
+Route::get('/principal', 'IndexController@principal');
+
+
+Route::resource('admin', 'UserController');
+
+Route::resource('backdoor', 'backdoorController');
+
