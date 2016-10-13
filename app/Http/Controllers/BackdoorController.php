@@ -39,9 +39,8 @@ class backdoorController extends Controller
     {
         \App\User::create([
             'name'=> $request['name'],
-            'lastname' => $request['lastname'],
             'email'=> $request['email'],
-            'password'=> $request['password'],
+            'password'=> bcrypt($request['password']),
             'role'=> $request['role'],
             ]);
         return redirect()->back();

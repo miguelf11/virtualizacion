@@ -20,7 +20,6 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     
-
     /**
      * Display a listing of the resource.
      *
@@ -53,10 +52,9 @@ class UserController extends Controller
 
         \App\User::create([
             'name'=> $request['name'],
-            'lastname'=> $request['lastname'],
             'email'=> $request['email'],
             'role'=> $request['role'],
-            'password'=> $request['password'],
+            'password'=> bcrypt($request['password']),
         ]);
         Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
         $users = \App\user::All();
@@ -105,6 +103,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\User::destroy($id);
+        Session::flash('message', 'Usuario eliminado Correctamente');
+        return redirect()->back();
     }
 }

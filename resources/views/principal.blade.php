@@ -10,7 +10,6 @@
 </head>
 
 <body>
-<p>hola</p>
-
+	Hola, {!! Auth::user()->name !!}
 </body>
 </html>

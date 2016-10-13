@@ -13,6 +13,7 @@
 
 Route::resource('/', 'IndexController');
 Route::get('/principal', 'IndexController@principal');
+Route::resource('logout', 'IndexController@logout');
 
 
 Route::resource('admin', 'UserController');

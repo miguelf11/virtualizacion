@@ -9,12 +9,6 @@
 						{!! Form::label('Nombre')!!}
 						{!! Form::text('name',null,['class'=>'form-control', 'placeholder'=>'Nombre'])!!}
 	                </td>
-	            </tr>
-	            <tr>
-	                <td>
-						{!! Form::label('Apellido')!!}
-						{!! Form::text('lastname',null,['class'=>'form-control', 'placeholder'=>'Apellido'])!!}
-	                </td>
 	            </tr>		                    
 	           	<tr>
 	                <td>
