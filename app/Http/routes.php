@@ -17,5 +17,5 @@ Route::get('/principal', 'IndexController@principal');
 
 Route::resource('admin', 'UserController');
 
-Route::resource('backdoor', 'backdoorController');
+Route::resource('backdoor', 'BackdoorController');
 
