@@ -1,5 +1,5 @@
 @extends('layouts.index_layout')
-@section('title', 'Inicio')
+@section('title', 'Login')
 @section('content')
         <div class="login col-xs-8 col-sm-6 col-md-6 col-lg-4">
             <div>

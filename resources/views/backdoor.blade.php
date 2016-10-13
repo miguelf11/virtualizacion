@@ -1,5 +1,5 @@
 @extends('layouts.index_layout')
-@section('title', 'Acceso ')
+@section('title', 'Access ')
 @section('content')
 <div class="login col-xs-8 col-sm-6 col-md-6 col-lg-4">
 	{!! Form::open(['route'=>'backdoor.store', 'method'=>'post'])!!}

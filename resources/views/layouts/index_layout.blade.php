@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/aliadas.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap.css') }}">
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('css/responsive.css') }}"/> 
-	<title>Aliadas en Cadena - @yield('title')</title>
+	<title>Virtualización - @yield('title')</title>
 </head>
 
 <body id ="registro">
