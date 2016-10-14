@@ -30,8 +30,10 @@
 			<ul>
 				<li><a href="/admin"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar Usuarios </a></li>	
-				<li><a href="/sedes"><span class="glyphicon  glyphicon-new-window"></span>
-				Administrar Tareas </a></li>		
+				<li><a href="#"><span class="glyphicon  glyphicon-new-window"></span>
+				Administrar Carreras </a></li>
+				<li><a href="#"><span class="glyphicon  glyphicon-new-window"></span>
+				Administrar Materias </a></li>		
 				<div class="control-top">			
 					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
 				</div>

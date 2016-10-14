@@ -16,8 +16,8 @@ class CrearTablaCarreras extends Migration
         Schema::create('carreras', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('tipo');
             $table->string('descr');
-            $table->unsignedInteger('asignatura_id');   // foreign key => asignaturas
             $table->timestamps();
         });
     }

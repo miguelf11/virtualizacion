@@ -101,7 +101,7 @@
 					       		<h4 class="modal-title">Editar Usuario: {{ $user-> name }}</h4>
 					      	</div>
 					      	<div class="modal-body">
-					      	{!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'put'])!!}
+					      	{!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'PUT'])!!}
 
 					      		{!! Form::label('Nombre')!!}
 								{!! Form::text('name',$user->name,['class'=>'form-control'])!!}

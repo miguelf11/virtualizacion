@@ -9,6 +9,7 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
+//Route::resource('manage_carreras', '');
 */
 
 Route::resource('/', 'IndexController');
@@ -17,6 +18,7 @@ Route::resource('logout', 'IndexController@logout');
 
 
 Route::resource('admin', 'UserController');
+
 
 Route::resource('backdoor', 'BackdoorController');
 

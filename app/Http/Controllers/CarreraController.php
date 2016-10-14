@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserCreateRequest;
-use App\Http\Requests\UserUpdateRequest;
-use DB;
-use Session;
-use Illuminate\Http\Request;
-use Redirect;
 
-
-
-class UserController extends Controller
+class CarreraController extends Controller
 {
-    
-    public function __construct(){
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = \App\User::paginate(6);
-        return view('admin.admin', compact('users'));
+        $carreras = \App\Carrera::paginate(6);
+        return view('admin.carrera', compact('carreras'));
     }
 
     /**
@@ -49,7 +38,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         \App\User::create([
             'name'=> $request['name'],
             'email'=> $request['email'],
@@ -92,15 +80,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = \App\User::find($id);
-        //$request['password'] = $request['password'];
-        $user->fill($request->all());
-        $user-> save();
-        Session::flash('message', 'Usuario Editado Correctamente');
-        return redirect()->back();
+        //
     }
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -110,8 +91,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        \App\User::destroy($id);
-        Session::flash('message', 'Usuario eliminado Correctamente');
-        return redirect()->back();
+        //
     }
 }
