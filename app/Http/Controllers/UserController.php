@@ -92,8 +92,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = \App\User::find($id);
+        //$request['password'] = $request['password'];
+        $user->fill($request->all());
+        $user-> save();
+        Session::flash('message', 'Usuario Editado Correctamente');
+        return redirect()->back();
     }
+
+
 
     /**
      * Remove the specified resource from storage.
