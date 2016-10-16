@@ -16,7 +16,7 @@ class CrearTablaLecciones extends Migration
         Schema::create('lecciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('descr');
+            $table->string('code');
             $table->unsignedInteger('lista_tareas_id');     // foreign key => lista_tareas
             $table->unsignedInteger('asignatura_id');       // foreign key => asignaturas
             $table->unsignedInteger('leccion_estados_id');  // foreign key => leccion_estados

@@ -5,9 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Carrera extends Model
-{	
-	public function asignaturas()
-    {
-        return $this->belongsToMany('App\Asignatura');
-    }
+{
+    protected $table = 'carreras';
+    protected $fillable = ['name', 'type', 'duration'];
 }

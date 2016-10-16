@@ -13,7 +13,7 @@
 	           	<tr>
 	                <td>
 	                	{!! Form::label('Correo Electrónico')!!}
-						{!! Form::text('email',null,['class'=>'form-control', 'placeholder'=>'correo@dominio.com'])!!}
+						{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'correo@dominio.com'])!!}
 	                </td>
 	            </tr>
 	            <tr>

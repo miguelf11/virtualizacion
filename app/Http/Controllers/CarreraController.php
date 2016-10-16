@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use Redirect;
+use DB;
 
 class CarreraController extends Controller
 {
@@ -33,19 +37,17 @@ class CarreraController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        \App\User::create([
+        \App\Carrera::create([
             'name'=> $request['name'],
-            'email'=> $request['email'],
-            'role'=> $request['role'],
-            'password'=> $request['password'],
+            'type'=> $request['type'],
+            'duration'=> $request['duration'],
         ]);
         Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
-        $users = \App\user::All();
         return redirect()->back();
     }
 
@@ -80,7 +82,11 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $carrera = \App\Carrera::find($id);
+        $carrera->fill($request->all());
+        $carrera-> save();
+        Session::flash('message', 'Carrera Editado Correctamente');
+        return redirect()->back();
     }
 
     /**
@@ -91,6 +97,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Carrera::destroy($id);
+        Session::flash('message', 'Carrera eliminado Correctamente');
+        return redirect()->back();
     }
 }

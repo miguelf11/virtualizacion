@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Redirect;
 
 class BackdoorController extends Controller
 {
@@ -40,10 +41,10 @@ class BackdoorController extends Controller
         \App\User::create([
             'name'=> $request['name'],
             'email'=> $request['email'],
-            'password'=> bcrypt($request['password']),
+            'password'=> $request['password'],
             'role'=> $request['role'],
             ]);
-        return redirect()->back();
+        return Redirect::to('/');
     }
 
     /**

@@ -12,13 +12,16 @@
 //Route::resource('manage_carreras', '');
 */
 
+Route::resource('backdoor', 'BackdoorController');
+
+
 Route::resource('/', 'IndexController');
 Route::get('/principal', 'IndexController@principal');
 Route::resource('logout', 'IndexController@logout');
 
-
 Route::resource('admin', 'UserController');
 
+Route::resource('carrera','CarreraController');
 
-Route::resource('backdoor', 'BackdoorController');
+
 

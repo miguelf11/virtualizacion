@@ -30,7 +30,7 @@
 			<ul>
 				<li><a href="/admin"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar Usuarios </a></li>	
-				<li><a href="#"><span class="glyphicon  glyphicon-new-window"></span>
+				<li><a href="/carrera"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar Carreras </a></li>
 				<li><a href="#"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar Materias </a></li>		

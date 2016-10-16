@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaAsignaturas extends Migration
+class CrearTablaCursos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CrearTablaAsignaturas extends Migration
      */
     public function up()
     {
-        Schema::create('asignaturas', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('descr');
-            $table->unsignedInteger('carrera_id');  // foreign key => carreras
-            $table->unsignedInteger('leccion_id');  // foreign key => lecciones
+            $table->string('name');
+            $table->string('code');
             $table->timestamps();
         });
     }

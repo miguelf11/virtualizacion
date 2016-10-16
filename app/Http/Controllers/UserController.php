@@ -56,8 +56,7 @@ class UserController extends Controller
             'role'=> $request['role'],
             'password'=> $request['password'],
         ]);
-        Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
-        $users = \App\user::All();
+        Session::flash('flash_message', 'Carrera creado satisfactoriamente!');
         return redirect()->back();
     }
 
@@ -93,7 +92,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = \App\User::find($id);
-        //$request['password'] = $request['password'];
         $user->fill($request->all());
         $user-> save();
         Session::flash('message', 'Usuario Editado Correctamente');

@@ -2,14 +2,14 @@
 @section('content')		
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 	<!-- Validar Errores en el servidor-->
-	<!-- mensaje de creacion de usuario-->
+	<!-- mensaje de creacion de carrera-->
 	@if(Session::has('flash_message'))
 		<div class="alert alert-success alert-dismissible" role="alert">
 	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		       {{ Session::get('flash_message') }}
 		</div>
 	@endif
-	<!-- mensaje de edicion de usuario-->
+	<!-- mensaje de edicion de carrera-->
 	@if(Session::has('message'))
 	    <div class="alert alert-success alert-dismissible" role="alert">
 	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -17,15 +17,15 @@
 		</div>
 	@endif
 	<div>
-		<h2> Administrar Usuarios </h2>
+		<h2> Administrar Carreras </h2>
 	</div>
 	<div class="row">
 		<div id = "addUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<div>
 				<div>
-					<h3> Crear Usuario</h3>
+					<h3> Crear Carreras</h3>
 				</div>
-				{!! Form::open(['route'=>'admin.store', 'method'=>'post'])!!}
+				{!! Form::open(['route'=>'carrera.store', 'method'=>'post'])!!}
 				<table id="form">
 					<tr>
                         <td>
@@ -35,30 +35,20 @@
                     </tr>			                    
                    	<tr>
                         <td>
-                        	{!! Form::label('Correo Electrónico')!!}
-							{!! Form::text('email',null,['class'=>'form-control', 'placeholder'=>'correo@dominio.com'])!!}
+                        	{!! Form::label('Tipo')!!}
+							{!! Form::text('type',null,['class'=>'form-control', 'placeholder'=>'pregrado'])!!}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                        	{!! Form::label('Contraseña')!!}
-							{!! Form::password('password',['class'=>'form-control', 'placeholder'=>'*******'])!!}				
+                        	{!! Form::label('Duración')!!}
+							{!! Form::text('duration',null,['class'=>'form-control', 'placeholder'=>'larga'])!!}			
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        	{!! Form::label('Rol')!!}
-                        	{!! Form::select('role',
-								array(
-								'Especialista' => 'Especialista', 
-								'Sincronizador' => 'Sincronizador'), null, ['class'=>'form-control','placeholder'=>'seleccione']
-                        	)!!}
-                        </td>
-                    </tr>				                    
+                    </tr>			                    
                     <tr>
                         <td>
 				            <div class="addField">
-							{!! Form::submit('Crear Usuario', ['class'=>'btn btn-success'])!!}
+							{!! Form::submit('Crear Carrera', ['class'=>'btn btn-success'])!!}
 				            </div>
                         </td>
                     </tr>				                    
@@ -69,55 +59,48 @@
 
 		<div id = "showUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<div>
-			    <h1>Usuarios</h1>
+			    <h1>Carrera</h1>
 		        <table class="table table-striped table-hover" >
 		            <thead>
 		                <th>Nombre</th>
-		                <th>Correo Electrónico</th>
-		                <th>Rol</th>
+		                <th>Tipo</th>
+		                <th>Duración</th>
 		                <th>Editar</th>
 		                <th>Eliminar</th>
 		            </thead>
-					@foreach($users as $user)
+					@foreach($carreras as $carrera)
 		            <tbody>
-		                <td>{{ $user->name }}</td>
-		                <td>{{ $user->email }}</td>
-		                <td>{{ $user->role }}</td>
+		                <td>{{ $carrera->name }}</td>
+		                <td>{{ $carrera->type }}</td>
+		                <td>{{ $carrera->duration }}</td>
 
-		                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$user->id}}" data-id="{{ $user->id }}" ></button></td>
+		                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$carrera->id}}" data-id="{{ $carrera->id }}" ></button></td>
 	                
-		                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$user->id}}" ></button></td>
+		                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$carrera->id}}" ></button></td>
 		            </tbody>
 					@endforeach 
 		        </table>
 
-				@foreach($users as $user)
-				<div id="modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
+		        @foreach($carreras as $carrera)
+				<div id="modalUser{{$carrera->id}}" class="modal fade" tabindex="-1" role="dialog">
 					<div class="modal-dialog" role="document">
 					    <div class="modal-content">
 					    	<div class="modal-header">
 					        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					       		<h4 class="modal-title">Editar Usuario: {{ $user-> name }}</h4>
+					       		<h4 class="modal-title">Editar Carrera: {{ $carrera-> name }}</h4>
 					      	</div>
 					      	<div class="modal-body">
-					      	{!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'PUT'])!!}
+					      	{!! Form::model($carrera,['route'=> ['carrera.update',$carrera->id], 'method'=>'PUT'])!!}
 
 					      		{!! Form::label('Nombre')!!}
-								{!! Form::text('name',$user->name,['class'=>'form-control'])!!}
+								{!! Form::text('name',$carrera->name,['class'=>'form-control'])!!}
 
-								{!! Form::label('Correo Electrónico')!!}
-								{!! Form::text('email',null,['class'=>'form-control','readonly'=>'true'])!!}
+								{!! Form::label('Tipo')!!}
+								{!! Form::text('type',$carrera->type,['class'=>'form-control'])!!}
 
-								{!! Form::label('Contraseña')!!}
-								{!! Form::password('password',['class'=>'form-control'])!!}
+								{!! Form::label('Duración')!!}
+								{!! Form::text('duration',$carrera->duration,['class'=>'form-control'])!!}
 
-								{!! Form::label('Rol')!!}
-                        		{!! Form::select('role',
-								array(
-								'Especialista' => 'Especialista', 
-								'Sincronizador' => 'Sincronizador',
-								'Administrador' => 'Administrador'), $user->role, ['class'=>'form-control',]
-                        	)!!}
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -130,17 +113,17 @@
 				</div><!-- /.modal -->	
 				@endforeach	
 
-				@foreach($users as $user)
-				<div id="modalDeleteUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
+				@foreach($carreras as $carrera)
+				<div id="modalDeleteUser{{$carrera->id}}" class="modal fade" tabindex="-1" role="dialog">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 					    	<div class="modal-header">
 					        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        	<h4 class="modal-title">Eliminar Usuario: {{ $user-> name }}</h4>
+					        	<h4 class="modal-title">Eliminar Carrera: {{ $carrera-> name }}</h4>
 					      	</div>
-					      	{!! Form::open(['route'=> ['admin.update',$user->id], 'method'=>'delete'])!!}
+					      	{!! Form::open(['route'=> ['carrera.update',$carrera->id], 'method'=>'delete'])!!}
 					      	<div class="modal-body">
-					      	¿Desea eliminar el Usuario?
+					      	¿Desea eliminar la Carrera?
 					     	</div>
 					      	<div class="modal-footer">
 					        	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -150,12 +133,9 @@
 					    </div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->	
-				@endforeach							
-			</div>
+				@endforeach	
+		    </div>
 		</div>
-	</div>	
-</div>
-</div>
-
-						        
+	</div>
+</div>						        
 @stop

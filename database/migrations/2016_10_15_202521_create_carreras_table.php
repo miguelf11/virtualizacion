@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaCarreras extends Migration
+class CreateCarrerasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +14,9 @@ class CrearTablaCarreras extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('tipo');
-            $table->string('descr');
+            $table->string('name');
+            $table->string('type');  //{postgrado/pregrado/diplomado}
+            $table->string('duration');      //{corta/larga}
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CrearTablaCarreras extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carreras');
+        Schema::drop('carreras');
     }
 }

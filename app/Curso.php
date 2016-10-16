@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Asignatura extends Model
+class Curso extends Model
 {	
     public function carreras()
     {
