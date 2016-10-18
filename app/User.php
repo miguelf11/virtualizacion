@@ -43,4 +43,19 @@ class User extends Model implements AuthenticatableContract,
             $this->attributes['password'] = \Hash::make($valor);
         }
     }
+
+    public function tareas()
+    {
+        return $this->hasMany('App\Tarea');
+    }
+
+    public function cargo()
+    {
+        return $this->belongsTo('App\Cargo');
+    }
+
+    public function lecciones()
+    {
+        return $this->belongsToMany('App\Leccion');
+    }
 }

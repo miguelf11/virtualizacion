@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaListaTareas extends Migration
+class CreateAlertasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +12,13 @@ class CrearTablaListaTareas extends Migration
      */
     public function up()
     {
-        Schema::create('lista_tareas', function (Blueprint $table) {
+        Schema::create('alertas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('descr');
-            $table->unsignedInteger('rol_id');  // foreign key => roles
+            $table->string('title');
+            $table->string('data');            
+            $table->unsignedInteger('tarea_id');    // foreign key => tareas         
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
@@ -29,6 +28,6 @@ class CrearTablaListaTareas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lista_tareas');
+        Schema::dropIfExists('alertas');
     }
 }

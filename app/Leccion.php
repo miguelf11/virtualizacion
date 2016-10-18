@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Leccion extends Model
 {
-	public function asignaturas()
-    {
-        return $this->belongsToMany('App\Asignatura');
-    }
+    protected $table = 'lecciones';
 
-	public function estado()
+	public function curso()
     {
-        return $this->belongsTo('App\LeccionEstado', 'leccion_estados_id');
+        return $this->belongsTo('App\Curso');
     }	
 
 	public function tareas()
@@ -21,13 +18,18 @@ class Leccion extends Model
         return $this->hasMany('App\Tarea');
     }
 
-	public function usuarios()
+	public function users()
     {
-        return $this->belongsToMany('App\Usuario');
+        return $this->belongsToMany('App\User');
     }
 
-	public function tarea_actual()
+	public function t_actual()
     {
-        return $this->belongsTo('App\ListaTareas', 'lista_tareas_id');
+        return $this->belongsTo('App\TareasProduccion');
+    }
+
+    public function t_actual_2()
+    {
+        return $this->belongsTo('App\TareasProduccion');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaLeccionEstados extends Migration
+class CreateLeccionUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CrearTablaLeccionEstados extends Migration
      */
     public function up()
     {
-        Schema::create('leccion_estados', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre');
-            $table->string('descr');
+        Schema::create('leccion_user', function (Blueprint $table) {
+            $table->unsignedInteger('leccion_id');   
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CrearTablaLeccionEstados extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leccion_estados');
+        Schema::dropIfExists('leccion_user');
     }
 }

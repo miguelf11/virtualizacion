@@ -24,4 +24,6 @@ Route::resource('admin', 'UserController');
 Route::resource('carrera','CarreraController');
 
 
-
+Route::get('/{user_id}/worker', 'WorkerController@index');
+//Route::get('/{user_id}/manager', 'ManagerController@index');
+//Route::get('/{user_id}/director', 'DirectorController@index');

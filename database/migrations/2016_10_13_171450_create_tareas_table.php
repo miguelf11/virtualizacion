@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTareas extends Migration
+class CreateTareasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,11 @@ class CrearTablaTareas extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->increments('id');            
-            $table->unsignedInteger('lista_tareas_id');      // foreign key => lista_tareas
+            $table->enum('type', ['conceptualizacion', 'produccion']);
+            $table->enum('status', ['activa', 'completada']);
+            $table->unsignedInteger('t_prod_id');            // foreign key => tareas_produccion
             $table->unsignedInteger('leccion_id');           // foreign key => lecciones
-            $table->unsignedInteger('usuario_id');           // foreign key => usuarios
-            $table->unsignedInteger('tarea_estados_id');     // foreign key => tarea_estados
+            $table->unsignedInteger('user_id');              // foreign key => users           
             $table->timestamps();
         });
     }

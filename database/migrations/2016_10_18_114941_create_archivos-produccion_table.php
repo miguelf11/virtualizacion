@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTareaEstados extends Migration
+class CreateArchivosProduccionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +12,12 @@ class CrearTablaTareaEstados extends Migration
      */
     public function up()
     {
-        Schema::create('tarea_estados', function (Blueprint $table) {
+        Schema::create('archivos_produccion', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('descr');            
+            $table->string('name');
+            $table->string('descr')->nullable();                         
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
@@ -28,6 +27,6 @@ class CrearTablaTareaEstados extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarea_estados');
+        Schema::dropIfExists('archivos_produccion');
     }
 }

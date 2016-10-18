@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaLeccionUsuario extends Migration
+class CreateCargosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CrearTablaLeccionUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('leccion_usuario', function (Blueprint $table) {
-            $table->unsignedInteger('leccion_id');   
-            $table->unsignedInteger('usuario_id');
+        Schema::create('cargos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('descr')->nullable();
+            $table->enum('rol', ['worker', 'manager', 'director']); 
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CrearTablaLeccionUsuario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leccion_usuario');
+        Schema::dropIfExists('cargos');
     }
 }

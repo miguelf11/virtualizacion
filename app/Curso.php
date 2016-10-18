@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
 {	
-    public function carreras()
+    public function carrera()
     {
-        return $this->belongsToMany('App\Carrera');
+        return $this->belongsTo('App\Carrera');
     }
 
 	public function lecciones()
     {
-        return $this->belongsToMany('App\Leccion');
+        return $this->hasMany('App\Leccion');
     }
 }

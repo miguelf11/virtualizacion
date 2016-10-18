@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaCursos extends Migration
+class CreateCursosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,7 @@ class CrearTablaCursos extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('code');
+            $table->unsignedInteger('carrera_id');    // foreign key => carreras                 
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CrearTablaCursos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asignaturas');
+        Schema::dropIfExists('cursos');
     }
 }

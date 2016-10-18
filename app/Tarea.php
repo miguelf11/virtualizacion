@@ -11,24 +11,29 @@ class Tarea extends Model
         return $this->belongsTo('App\Leccion');
     }
 
-    public function estado()
+    public function archivos()
     {
-        return $this->belongsTo('App\TareaEstado', 'tarea_estados_id');
-    }	
+        return $this->hasMany('App\Archivo');
+    }    
 
-	public function which()
+    public function intentos()
     {
-        return $this->belongsTo('App\ListaTareas', 'lista_tareas_id');
+        return $this->hasMany('App\Intento');
+    }    
+
+    public function alertas()
+    {
+        return $this->hasMany('App\Alerta');
     }
 
-	public function usuario()
+    public function user()
     {
-        return $this->belongsTo('App\Usuario');
+        return $this->belongsTo('App\User');
     }
 
-    public function recursos()
+	public function t_prod()
     {
-        return $this->hasMany('App\Recurso');
+        return $this->belongsTo('App\TareasProduccion');
     }
-}
+
 }
