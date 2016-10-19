@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->integer('cargo_id')->unsigned(); // foreign key => cargos
             $table->rememberToken()->nullable();          
-            $table->timestamps();    
-            ;
+            $table->timestamps();
+
+            $table->foreign('cargo_id')->references('id')->on('cargos');
         });
     }
 
