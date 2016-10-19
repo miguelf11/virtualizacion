@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Redirect;
+use DB;
 
 class BackdoorController extends Controller
 {
@@ -17,7 +18,14 @@ class BackdoorController extends Controller
      */
     public function index()
     {
-        return view('backdoor',compact('data'));      
+        if( \App\Cargo::count() == 0){
+            \App\Cargo::create([
+            'name'=> "administrador",
+            'descr'=> "administrador",
+            'rol' => "admin",
+            ]);
+        }
+        return view('backdoor');      
     }
 
     /**
@@ -38,11 +46,12 @@ class BackdoorController extends Controller
      */
     public function store(Request $request)
     {
+
         \App\User::create([
             'name'=> $request['name'],
             'email'=> $request['email'],
+            'cargo_id'=> '1',
             'password'=> $request['password'],
-            'role'=> $request['role'],
             ]);
         return Redirect::to('/');
     }
