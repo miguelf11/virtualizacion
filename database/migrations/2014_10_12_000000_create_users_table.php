@@ -17,9 +17,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();            
             $table->string('password', 60);
-            $table->rememberToken();            
-            $table->unsignedInteger('cargo_id');   // foreign key => cargos            
+            $table->rememberToken()->nullable();            
+            $table->unsignedInteger('cargo_id');     // foreign key => cargos                        
             $table->timestamps();
+            $table->foreign('cargo_id')->references('id')->on('cargos');
         });
     }
 
