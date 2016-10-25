@@ -10,4 +10,14 @@ class Intento extends Model
     {
         return $this->belongsTo('App\Tarea');
     }
+
+    public function alertas()
+    {
+        return $this->hasMany('App\Alerta');
+    }
+
+    public function observaciones()
+    {
+        return $this->hasMany('App\Observacion');
+    }
 }

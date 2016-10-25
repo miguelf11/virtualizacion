@@ -17,7 +17,7 @@ class CreateArchivosTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('descr')->nullable();
-            $table->enum('type', ['in', 'out']);             
+            $table->enum('type', ['In', 'Out']);             
             $table->string('drive_id')->nullable();        // ID del archivo en Drive             
             $table->unsignedInteger('tarea_id');           // foreign key => tareas
             $table->unsignedInteger('archivo_prod_id');    // foreign key => archivos_produccion

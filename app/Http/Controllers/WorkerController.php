@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,9 @@ class WorkerController extends Controller
      */
     public function index($user_id)
     {   
-        return view('roles.worker', ['user' => $user_id]);
+        $user = User::find($user_id);
+        $tareas = $user->tareas;               
+        return view('roles.worker', compact('tareas'));
     }
     
 

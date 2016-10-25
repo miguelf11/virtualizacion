@@ -16,13 +16,12 @@ class CreateLeccionesTable extends Migration
         Schema::create('lecciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('code');
-            $table->enum('status', ['activa', 'completada']);
+            $table->string('code')->nullable();
+            $table->enum('status', ['Activa', 'Completada']);
             $table->boolean('audio');
-            $table->unsignedInteger('t_actual_id');                 // foreign key => tareas_produccion
+            $table->unsignedInteger('t_actual_id')->nullable();         // foreign key => tareas_produccion
             $table->unsignedInteger('t_actual_2_id')->nullable();   // foreign key => tareas_produccion
             $table->unsignedInteger('curso_id');                    // foreign key => cursos           
-            $table->unsignedInteger('user_id');                     // foreign key => usuarios
             $table->timestamps();
         });
     }

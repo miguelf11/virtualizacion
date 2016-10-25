@@ -21,11 +21,6 @@ class Tarea extends Model
         return $this->hasMany('App\Intento');
     }    
 
-    public function alertas()
-    {
-        return $this->hasMany('App\Alerta');
-    }
-
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -34,6 +29,16 @@ class Tarea extends Model
 	public function t_prod()
     {
         return $this->belongsTo('App\TareasProduccion');
+    }
+
+    public function alertas()
+    {
+        return $this->hasManyThrough('App\Alerta', 'App\Intento');
+    }
+
+    public function observaciones()
+    {
+        return $this->hasManyThrough('App\Observacion', 'App\Intento');
     }
 
 }

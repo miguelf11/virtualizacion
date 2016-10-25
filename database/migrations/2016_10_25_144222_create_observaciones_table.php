@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlertasTable extends Migration
+class CreateObservacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateAlertasTable extends Migration
      */
     public function up()
     {
-        Schema::create('alertas', function (Blueprint $table) {
+        Schema::create('observaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('data');            
-            $table->unsignedInteger('intento_id');    // foreign key => intentos         
+            $table->string('data');
+            $table->unsignedInteger('intento_id');    // foreign key => intentos          
             $table->timestamps();
-        }); 
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateAlertasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alertas');
+        Schema::drop('observaciones');
     }
 }

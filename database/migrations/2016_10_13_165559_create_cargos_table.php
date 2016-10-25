@@ -17,7 +17,7 @@ class CreateCargosTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('descr')->nullable();
-            $table->enum('rol', ['worker', 'manager', 'director']); 
+            $table->enum('rol', ['Worker', 'Manager', 'Director']); 
             $table->timestamps();
         });
     }

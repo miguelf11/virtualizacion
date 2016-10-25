@@ -15,11 +15,11 @@ class CreateTareasTable extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->increments('id');            
-            $table->enum('type', ['conceptualizacion', 'produccion']);
-            $table->enum('status', ['activa', 'completada']);
-            $table->unsignedInteger('t_prod_id');            // foreign key => tareas_produccion
-            $table->unsignedInteger('leccion_id');           // foreign key => lecciones
-            $table->unsignedInteger('user_id');              // foreign key => users           
+            $table->enum('type', ['Conceptualizacion', 'Produccion']);
+            $table->enum('status', ['Activa', 'En Revision', 'Modificar', 'En Correccion', 'Por Aprobar', 'En Espera', 'Aprobada']);            
+            $table->unsignedInteger('t_prod_id');                  // foreign key => tareas_produccion
+            $table->unsignedInteger('leccion_id')->nullable();     // foreign key => lecciones
+            $table->unsignedInteger('user_id');                    // foreign key => users           
             $table->timestamps();
         });
     }

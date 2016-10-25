@@ -16,7 +16,7 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->unsignedInteger('carrera_id');    // foreign key => carreras                 
             $table->timestamps();
         });

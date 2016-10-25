@@ -14,9 +14,8 @@ class CreateIntentosTable extends Migration
     {
         Schema::create('intentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('num');
-            $table->string('remarks')->nullable();
-            $table->enum('status', ['activa', 'en-revision', 'modificar', 'en-correccion', 'por-aprobar','aprobada']);
+            $table->unsignedInteger('num');            
+            $table->enum('status', ['Activo', 'Finalizado']);
             $table->unsignedInteger('tarea_id');       // foreign key => tareas         
             $table->timestamps();
         });    
