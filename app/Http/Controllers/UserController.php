@@ -28,7 +28,8 @@ class UserController extends Controller
     public function index()
     {
         $users = \App\User::paginate(6);
-        return view('admin.admin', compact('users'));
+        $cargos = DB::table('cargos')->select('name')->where('rol','!=','Admin')->lists('name');
+        return view('admin.admin', compact('users','cargos'));
     }
 
     /**
@@ -53,7 +54,7 @@ class UserController extends Controller
         \App\User::create([
             'name'=> $request['name'],
             'email'=> $request['email'],
-            'role'=> $request['role'],
+            'cargo'=> $request['cargo'],
             'password'=> $request['password'],
         ]);
         Session::flash('flash_message', 'Carrera creado satisfactoriamente!');

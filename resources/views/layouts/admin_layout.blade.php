@@ -29,11 +29,14 @@
 		<nav>
 			<ul>
 				<li><a href="/admin"><span class="glyphicon  glyphicon-new-window"></span>
-				Administrar Usuarios </a></li>	
+				Administrar Usuarios </a></li>
+				<li><a href="/cargo"><span class="glyphicon  glyphicon-new-window"></span>
+				Administrar Cargos </a></li>		
 				<li><a href="/carrera"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar Carreras </a></li>
 				<li><a href="#"><span class="glyphicon  glyphicon-new-window"></span>
-				Administrar Materias </a></li>		
+				Administrar Materias </a></li>
+
 				<div class="control-top">			
 					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
 				</div>

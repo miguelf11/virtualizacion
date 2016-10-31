@@ -37,7 +37,7 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         if(Auth::attempt(['email'=> $request['email'], 'password' => $request['password']])){
-            if(Auth::user()->role == 'Administrador'){
+            if(Auth::user()->cargo_id == '1'){
                 return Redirect::to('admin');
             }else{
                 return Redirect::to('/principal');

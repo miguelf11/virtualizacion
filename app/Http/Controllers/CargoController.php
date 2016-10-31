@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
+use Session;
 use Redirect;
 use DB;
 
-class BackdoorController extends Controller
+class CargoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +20,8 @@ class BackdoorController extends Controller
      */
     public function index()
     {
-        if( \App\Cargo::count() == 0){
-            \App\Cargo::create([
-            'name'=> "Administrador",
-            'descr'=> "Administrador",
-            'rol' => "Admin",
-            ]);
-        }
-        return view('backdoor');      
+        $cargos = \App\Cargo::paginate(6);
+        return view('admin.cargos', compact('cargos'));
     }
 
     /**
@@ -46,14 +42,13 @@ class BackdoorController extends Controller
      */
     public function store(Request $request)
     {
-
-        \App\User::create([
+        \App\Cargo::create([
             'name'=> $request['name'],
-            'email'=> $request['email'],
-            'cargo_id'=> '1',
-            'password'=> $request['password'],
+            'descr'=> $request['descr'],
+            'rol' => $request['rol'],
             ]);
-        return Redirect::to('/');
+        Session::flash('flash_message', 'Cargo creado satisfactoriamente!');
+        return redirect()->back();
     }
 
     /**
@@ -87,7 +82,11 @@ class BackdoorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cargo = \App\Cargo::find($id);
+        $cargo->fill($request->all());
+        $cargo-> save();
+        Session::flash('message', 'Cargo Editado Correctamente');
+        return redirect()->back();
     }
 
     /**
@@ -98,6 +97,8 @@ class BackdoorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Cargo::destroy($id);
+        Session::flash('message', 'Cargo eliminado Correctamente');
+        return redirect()->back();
     }
 }
