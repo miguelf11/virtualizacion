@@ -48,7 +48,7 @@
                     <tr>
                         <td>
                         	{!! Form::label('Cargo')!!}
-                        	{!! Form::select('cargo', $cargos, Input::old('cargo'), ['class' => 'form-control']) !!}
+                        	{!! Form::select('cargo', $cargos, null, ['class' => 'form-control']) !!}
                         </td>
                     </tr>				                    
                     <tr>
@@ -107,13 +107,8 @@
 								{!! Form::label('Contraseña')!!}
 								{!! Form::password('password',['class'=>'form-control'])!!}
 
-								{!! Form::label('Rol')!!}
-                        		{!! Form::select('cargo',
-								array(
-								'Especialista' => 'Especialista', 
-								'Sincronizador' => 'Sincronizador',
-								'Administrador' => 'Administrador'), $user->cargo, ['class'=>'form-control',]
-                        	)!!}
+								{!! Form::label('Cargo')!!}
+                        		{!! Form::select('cargo', $cargos, null, ['class' => 'form-control']) !!}
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
