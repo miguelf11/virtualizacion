@@ -15,7 +15,7 @@ class CreateCarrerasTable extends Migration
         Schema::create('carreras', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->enum('type', ['Tecnologico', 'Pregrado', 'Postgrado', 'Diplomado', 'Extension', 'Otro']);
+            $table->enum('type', ['Técnologico', 'Pregrado', 'Postgrado', 'Diplomado', 'Extension', 'Otro']);
             $table->timestamps();
         });
     }

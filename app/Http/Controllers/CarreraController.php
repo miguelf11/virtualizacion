@@ -45,7 +45,6 @@ class CarreraController extends Controller
         \App\Carrera::create([
             'name'=> $request['name'],
             'type'=> $request['type'],
-            'duration'=> $request['duration'],
         ]);
         Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
         return redirect()->back();
@@ -59,7 +58,9 @@ class CarreraController extends Controller
      */
     public function show($id)
     {
-        //
+        $carrera = \App\Carrera::find($id);
+
+        return view('admin.carrera_view',compact('carrera'));
     }
 
     /**

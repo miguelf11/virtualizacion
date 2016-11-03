@@ -12,6 +12,7 @@
 //Route::resource('manage_carreras', '');
 */
 
+Route::resource('prueba','CursoController@prueba');
 Route::resource('backdoor', 'BackdoorController');
 
 
@@ -25,7 +26,13 @@ Route::resource('carrera','CarreraController');
 
 Route::resource('cargo','CargoController');
 
+Route::any('/curso/add', array('as'=>'addCurso', 'uses'=>'CursoController@addCurso'));
+Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'CursoController@getMat'));
+Route::resource('curso','CursoController');
+
 
 Route::get('/{user_id}/worker', 'WorkerController@index');
+
+
 //Route::get('/{user_id}/manager', 'ManagerController@index');
 //Route::get('/{user_id}/director', 'DirectorController@index');

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
+use Session;
+use Redirect;
+use DB;
 
 class CursoController extends Controller
 {
@@ -16,7 +20,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = \App\Curso::paginate(6);
+        return view('admin.curso', compact('cursos'));
     }
 
     /**
@@ -37,7 +42,12 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\Curso::create([
+            'name'=> $request['name'],
+            'code'=> $request['code'],
+        ]);
+        Session::flash('flash_message', 'Curso creado satisfactoriamente!');
+        return redirect()->back();
     }
 
     /**
@@ -71,7 +81,11 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = \App\Curso::find($id);
+        $curso->fill($request->all());
+        $curso-> save();
+        Session::flash('message', 'Curso Editado Correctamente');
+        return redirect()->back();
     }
 
     /**
@@ -82,6 +96,37 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Curso::destroy($id);
+        Session::flash('message', 'Curso eliminado Correctamente');
+        return redirect()->back();
+    }
+
+    public function getMat(Request $request){
+        $term= $request->term; //jQuery
+        $data = \App\Curso::where('name', 'LIKE', $term.'%')
+        ->take(10)
+        ->get();
+        $results = array();
+        foreach ($data as $key => $val) {
+            $results[] = ['value'=>$val->name];
+        }
+        return response()->json($results);
+    }
+
+    public function addCurso(Request $request)
+    {
+        //return $request['carrera_id'];
+        //return $request['curso_name'];
+        $carrera = \App\Carrera::find($request->carrera_id);
+        $curso = \App\Curso::where('name',$request['curso_name'])->get();
+        $curso = $curso[0];
+        $carrera->cursos()->attach($curso['id']);
+
+        return redirect()->back();
+
+    }
+
+    public function prueba(){
+        return view('admin.prueba');
     }
 }
