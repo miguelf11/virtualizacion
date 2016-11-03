@@ -58,7 +58,9 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        $curso = \App\Curso::find($id);
+
+        return view('admin.curso_view',compact('curso'));
     }
 
     /**

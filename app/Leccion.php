@@ -8,6 +8,8 @@ class Leccion extends Model
 {
     protected $table = 'lecciones';
 
+    protected $fillable = ['name','code','status','audio','t_actual_id','t_actual_2_id','curso_id'];
+
 	public function curso()
     {
         return $this->belongsTo('App\Curso');

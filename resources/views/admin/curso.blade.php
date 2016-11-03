@@ -63,7 +63,7 @@
 		            </thead>
 					@foreach($cursos as $curso)
 		            <tbody>
-		                <td>{{ $curso->name }}</td>
+		                <td><a href="/curso/{{$curso->id}}">{{$curso->name}}</td>
 		                <td>{{ $curso->code }}</td>
 
 		                <td class="text-left"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$curso->id}}" data-id="{{ $curso->id }}" ></button></td>

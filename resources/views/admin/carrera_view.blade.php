@@ -54,7 +54,7 @@
 			    </thead>
 				@foreach($carrera->cursos as $curso)
 			    <tbody>
-			        <td>{{$curso->name}}</td>
+			        <td><a href="/curso/{{$curso->id}}">{{$curso->name}}</td>
 			        <td>{{$curso->code}}</td>
 			        <td class="text-left"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$carrera->id}}" ></button></td>
 			    </tbody>

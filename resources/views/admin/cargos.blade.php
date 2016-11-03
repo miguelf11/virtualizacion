@@ -78,9 +78,9 @@
 		                <td>{{ $cargo->name }}</td>
 		                <td>{{ $cargo->rol}}</td>
 
-		                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$cargo->id}}" data-id="{{ $cargo->id }}" ></button></td>
+		                <td class="text-left"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$cargo->id}}" data-id="{{ $cargo->id }}" ></button></td>
 	                
-		                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$cargo->id}}" ></button></td>
+		                <td class="text-left"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$cargo->id}}" ></button></td>
 		            </tbody>
 					@endforeach 
 		        </table>
