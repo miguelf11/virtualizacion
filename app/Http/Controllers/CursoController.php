@@ -117,18 +117,33 @@ class CursoController extends Controller
 
     public function addCurso(Request $request)
     {
-        //return $request['carrera_id'];
-        //return $request['curso_name'];
+        //añadir un curso a una carrera
         $carrera = \App\Carrera::find($request->carrera_id);
         $curso = \App\Curso::where('name',$request['curso_name'])->get();
         $curso = $curso[0];
-        $carrera->cursos()->attach($curso['id']);
-
-        return redirect()->back();
-
+        $existe = DB::table('carrera_curso')->where('carrera_id', '=', $request['carrera_id'])->where('curso_id','=',$curso['id'])->count();
+        if($existe > 0){
+            Session::flash('message', 'El curso ya existe');
+            return redirect()->back();
+        }else{
+            $carrera->cursos()->attach($curso['id']);
+            Session::flash('message', 'Curso añadido Correctamente');
+            return redirect()->back();
+        }
     }
 
-    public function prueba(){
-        return view('admin.prueba');
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function rmCurso(Request $request)
+    {
+        //borrar el curso de una carrera
+        DB::table('carrera_curso')->where('carrera_id', '=', $request['carrera_id'])->where('curso_id','=',$request['curso_id'])->delete();
+        Session::flash('message', 'Curso Borrado Correctamente');
+        return redirect()->back();
+
     }
 }

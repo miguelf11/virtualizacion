@@ -54,14 +54,38 @@
 			    </thead>
 				@foreach($carrera->cursos as $curso)
 			    <tbody>
-			        <td><a href="/curso/{{$curso->id}}">{{$curso->name}}</td>
+			        <td><a href="/curso/{{$curso->id}}">{{$curso->name}}</a></td>
 			        <td>{{$curso->code}}</td>
-			        <td class="text-left"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$carrera->id}}" ></button></td>
+			        <td class="text-left"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$curso->id}}" ></button></td>
 			    </tbody>
 			    @endforeach
 			</table>
 
+			@foreach($carrera->cursos as $curso)
+			<div id="modalDeleteUser{{$curso->id}}" class="modal fade" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+				    	<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        	<h4 class="modal-title">Eliminar {{ $curso-> name }} de {{$carrera->name }}</h4>
+				      	</div>
+				      	{!! Form::open(['action'=> 'CursoController@rmCurso', 'method'=>'post'])!!}
+				      	<div class="modal-body">
+				      	¿Desea eliminar el curso?
+				     	</div>
+				      	<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				        	{!! Form::hidden('carrera_id',$carrera->id,['class'=>'form-control'])!!}
+				        	{!! Form::hidden('curso_id',$curso->id,['class'=>'form-control'])!!}
+				        	{!! Form::submit('Eliminar', ['class'=>'btn btn btn-danger'])!!} 
+				        	{!! Form::close() !!}
+				      	</div>
+				    </div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->	
+			@endforeach	
 		</div>
+	</div>
 </div>
 <script>
   $(document).ready(function(){

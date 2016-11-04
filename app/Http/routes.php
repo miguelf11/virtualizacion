@@ -26,6 +26,7 @@ Route::resource('cargo','CargoController');
 Route::resource('leccion','LeccionController');
 
 Route::any('/curso/add', array('as'=>'addCurso', 'uses'=>'CursoController@addCurso'));
+Route::any('curso/delete',array('as'=>'rmCurso','uses'=> 'CursoController@rmCurso'));
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'CursoController@getMat'));
 Route::resource('curso','CursoController');
 
