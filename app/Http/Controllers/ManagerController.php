@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class WorkerController extends Controller
+class ManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */    
     public function index($user_id)
     {   
         $user = User::find($user_id);
         $tareas = $user->tareas;               
-        return view('roles.worker', compact('tareas'));
-    }
-    
+        return view('roles.manager', compact('tareas'));
+    }    
+
     /**
      * Show the form for creating a new resource.
      *

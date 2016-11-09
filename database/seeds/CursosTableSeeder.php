@@ -14,7 +14,7 @@ class CursosTableSeeder extends Seeder
         $cursos = array(
             'id' => 1,
             'name'=>'Gestion de Riesgos',
-            'carrera_id' => 1,	// Administracion de Empresas            
+            //'carrera_id' => 1,	// Administracion de Empresas            
             'created_at' => date('Y-m-d G:i:s'), 
             'updated_at' => date('Y-m-d G:i:s')
         );
