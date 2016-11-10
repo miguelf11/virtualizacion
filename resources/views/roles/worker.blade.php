@@ -11,7 +11,6 @@
 
 <body>
 <div class="container">
-  <h1>{{ $tareas->first()->user->cargo->name }}</h1>
   <h3>Panel de Tareas</h3>
   <table class="table">
     <thead>
@@ -27,7 +26,6 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($tareas as $tarea)
         <tr>  
           <!-- Cod -->
           <td class="text-center">U7L8</td>

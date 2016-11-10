@@ -123,7 +123,7 @@ class CursoController extends Controller
         $curso = $curso[0];
         $existe = DB::table('carrera_curso')->where('carrera_id', '=', $request['carrera_id'])->where('curso_id','=',$curso['id'])->count();
         if($existe > 0){
-            Session::flash('message', 'El curso ya existe');
+            Session::flash('flash_message', 'El curso ya existe');
             return redirect()->back();
         }else{
             $carrera->cursos()->attach($curso['id']);
@@ -144,6 +144,5 @@ class CursoController extends Controller
         DB::table('carrera_curso')->where('carrera_id', '=', $request['carrera_id'])->where('curso_id','=',$request['curso_id'])->delete();
         Session::flash('message', 'Curso Borrado Correctamente');
         return redirect()->back();
-
     }
 }
