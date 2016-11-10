@@ -21,7 +21,7 @@ class AlertasTableSeeder extends Seeder
             ),      
             array('id' => 2,
                   'title' => 'Alerta Automatica',	    
-                  'data' => 'Faltan 2 dias para que finalice el tiempo promedio asociado a esta tarea!',
+                  'data' => 'Falta 1 dia para que finalice el tiempo promedio asociado a esta tarea!',
                   'intento_id' => 4, 	                   
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
