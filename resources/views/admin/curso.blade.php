@@ -72,6 +72,7 @@
 		            </tbody>
 					@endforeach 
 		        </table>
+		        {!! $cursos->render() !!}
 
 		        @foreach($cursos as $curso)
 				<div id="modalUser{{$curso->id}}" class="modal fade" tabindex="-1" role="dialog">

@@ -38,7 +38,7 @@
                         	{!! Form::label('Tipo')!!}
                         	{!! Form::select('type',
 								array(
-								'Técnologico' => 'Técnologico', 
+								'Tecnologico' => 'Tecnologico', 
 								'Pregrado' => 'Pregrado',
 								'Postgrado' => 'Postgrado',
 								'Diplomado' => 'Diplomado',
@@ -80,6 +80,7 @@
 		            </tbody>
 					@endforeach 
 		        </table>
+		        {!! $carreras->render() !!}
 
 		        @foreach($carreras as $carrera)
 				<div id="modalUser{{$carrera->id}}" class="modal fade" tabindex="-1" role="dialog">

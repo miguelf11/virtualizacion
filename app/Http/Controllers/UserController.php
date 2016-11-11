@@ -27,8 +27,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = \App\User::paginate(6);
         $cargos = DB::table('cargos')->select('name')->lists('name');
+        $users = \App\User::paginate(6);
         return view('admin.users', compact('users','cargos'));
     }
 

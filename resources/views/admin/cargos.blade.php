@@ -84,6 +84,7 @@
 		            </tbody>
 					@endforeach 
 		        </table>
+		        {!! $cargos->render() !!}
 
 		        @foreach($cargos as $cargo)
 				<div id="modalUser{{$cargo->id}}" class="modal fade" tabindex="-1" role="dialog">
