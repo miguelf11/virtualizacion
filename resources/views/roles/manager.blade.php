@@ -1,4 +1,4 @@
-@extends('layouts._index_')
+@extends('layouts.dashboard_layout')
 @section('title', 'Manager')
 @section('content')
 
