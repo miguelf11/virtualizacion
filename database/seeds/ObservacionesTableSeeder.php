@@ -18,7 +18,14 @@ class ObservacionesTableSeeder extends Seeder
                   'intento_id' => 4, 
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
-            )
+            ),
+            array('id' => 2,                  
+                  'title' => 'Observacion Tecnica',     
+                  'data' => 'El documento HTML5 presenta fallas de presentacion en ...',
+                  'intento_id' => 1, 
+                  'created_at' => date('Y-m-d G:i:s'), 
+                  'updated_at' => date('Y-m-d G:i:s')
+            )            
         );
 		DB::table('observaciones')->insert($observaciones);                                     
     }

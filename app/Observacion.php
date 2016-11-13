@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Observacion extends Model
 {
-	protected $table = 'lecciones';
+	protected $table = 'observaciones';
 	
     public function intento()
     {

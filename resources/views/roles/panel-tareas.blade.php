@@ -24,23 +24,27 @@
           <td class="text-center">{{ $tarea->t_prod->name }}</td>                      
 
           <!-- Alertas -->
-          <td class="text-center">                
-          @if($tarea->status == 'Aprobada')
-            <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target="#alertasModal">
+          <td class="text-center">         
+          @if($alertasModalId = "#alertasModal_" . $tarea->id) @endif                 
+          @if($tarea->status == 'Aprobada')            
+            <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target= {{ $alertasModalId }}>
           @else              
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#alertasModal">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target={{ $alertasModalId }}>
           @endif    
+          @if($alertasModalId = "alertasModal_" . $tarea->id) @endif       
               <span class="glyphicon glyphicon-bell"></span>
             </button>
           </td>
 
           <!-- Observaciones -->
           <td class="text-center">
+          @if($obsModalId = "#obsModal_" . $tarea->id) @endif                 
           @if($tarea->status == 'Aprobada')
-            <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target="#obsModal">
+            <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target= {{ $obsModalId }}>
           @else              
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#obsModal">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target= {{ $obsModalId }}>
           @endif  
+          @if($obsModalId = "obsModal_" . $tarea->id) @endif                 
               <span class="glyphicon glyphicon-eye-open"></span>
             </button> 
           </td>
@@ -126,11 +130,13 @@
 
           <!-- Enviar -->          
           <td class="text-center">
+          @if($enviarModalId = "#enviarModal_" . $tarea->id) @endif
           @if($tarea->status == 'Activa' || $tarea->status == 'Modificar')
-          <button class="btn btn-primary" data-toggle="modal" data-target="#enviarModal">
+          <button class="btn btn-primary" data-toggle="modal" data-target= {{ $enviarModalId }}>
           @else
-          <button class="disabled btn btn-primary" data-toggle="modal" data-target="#enviarModal">
+          <button class="disabled btn btn-primary" data-toggle="modal" data-target= {{ $enviarModalId }}>
           @endif  
+          @if($enviarModalId = "enviarModal_" . $tarea->id) @endif
             <span class="glyphicon glyphicon-send"></span>
           </button>
           </td>
@@ -139,7 +145,7 @@
         <!-- Modals -->
 
         <!-- Alertas Modal -->
-        <div id="alertasModal" class="modal fade" role="dialog">
+        <div id= {{ $alertasModalId }} class="modal fade" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -149,7 +155,7 @@
                 <h4 class="modal-title">Alertas</h4>
               </div>
               <div class="modal-body">
-                @foreach($tarea->alertas as $alerta)          
+                @foreach($tarea->alertas as $alerta)                            
                   <p>{{ $alerta->title }}</p>
                   <p>{{ $alerta->data }}</p>
                 @endforeach  
@@ -159,7 +165,7 @@
         </div>
         
         <!-- Observaciones Modal -->
-        <div id="obsModal" class="modal fade" role="dialog">
+        <div id= {{ $obsModalId }} class="modal fade" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content -->
@@ -169,16 +175,17 @@
                 <h4 class="modal-title">Observaciones</h4>
               </div>
               <div class="modal-body">
-              <!--
-
-              -->  
+                @foreach($tarea->observaciones as $obs)          
+                  <p>{{ $obs->title }}</p>
+                  <p>{{ $obs->data }}</p>
+                @endforeach  
               </div>     
             </div>
           </div>
         </div>        
 
         <!-- Enviar Modal -->
-        <div id="enviarModal" class="modal fade" role="dialog">
+        <div id= {{ $enviarModalId }} class="modal fade" role="dialog">
           <div class="modal-dialog">
 
           <!-- Modal content-->
