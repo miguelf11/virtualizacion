@@ -12,7 +12,7 @@ class CarrerasTableSeeder extends Seeder
     public function run()
     {
         $carreras = array(
-            'id' => 1,
+            'id' => 100,
             'name'=>'Administracion de Empresas',
             'type' => 'Tecnologico',	    
             'created_at' => date('Y-m-d G:i:s'), 

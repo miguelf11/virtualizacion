@@ -13,45 +13,45 @@ class LeccionesTableSeeder extends Seeder
     {
         $lecciones = array(
         	array(
-            	'id' => 1,
+            	'id' => 100,
             	'name'=>'Introduccion a la gestion de riesgos',            
-            	'curso_id' => 1,	//  Gestion de Riesgos
+            	'curso_id' => 100,	//  Gestion de Riesgos
             	'status' => 'Activa',
             	'audio' => false,		    
             	'created_at' => date('Y-m-d G:i:s'), 
             	'updated_at' => date('Y-m-d G:i:s')
         	),
 			array(
-            	'id' => 2,
+            	'id' => 200,
             	'name'=>'Evaluacion de riesgos',            
-            	'curso_id' => 1,	//  Gestion de Riesgos
+            	'curso_id' => 100,	//  Gestion de Riesgos
             	'status' => 'Activa',
             	'audio' => false,		    
             	'created_at' => date('Y-m-d G:i:s'), 
             	'updated_at' => date('Y-m-d G:i:s')
         	),
         	array(
-            	'id' => 3,
+            	'id' => 300,
             	'name'=>'Riesgos de cambio',            
-            	'curso_id' => 1,	//  Gestion de Riesgos
+            	'curso_id' => 100,	//  Gestion de Riesgos
             	'status' => 'Activa',
             	'audio' => false,		    
             	'created_at' => date('Y-m-d G:i:s'), 
             	'updated_at' => date('Y-m-d G:i:s')
         	),
 			array(
-            	'id' => 4,
+            	'id' => 400,
             	'name'=>'Riesgos operativos',            
-            	'curso_id' => 1,	//  Gestion de Riesgos
+            	'curso_id' => 100,	//  Gestion de Riesgos
             	'status' => 'Activa',
             	'audio' => false,		    
             	'created_at' => date('Y-m-d G:i:s'), 
             	'updated_at' => date('Y-m-d G:i:s')
         	),
         	array(
-            	'id' => 5,
+            	'id' => 500,
             	'name'=>'Riesgos de mercado',            
-            	'curso_id' => 1,	//  Gestion de Riesgos
+            	'curso_id' => 100,	//  Gestion de Riesgos
             	'status' => 'Activa',
             	'audio' => false,		    
             	'created_at' => date('Y-m-d G:i:s'), 

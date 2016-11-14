@@ -12,7 +12,7 @@ class CursosTableSeeder extends Seeder
     public function run()
     {
         $cursos = array(
-            'id' => 1,
+            'id' => 100,
             'name'=>'Gestion de Riesgos',
             //'carrera_id' => 1,	// Administracion de Empresas            
             'created_at' => date('Y-m-d G:i:s'), 

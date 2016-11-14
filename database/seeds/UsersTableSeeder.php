@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         
-        $user = array('id' => 1,
+        $user = array('id' => 100,
                   'name'=>'Pedro Perez',                  
                   'email' => 'pedroperez@gmail.com',
                   'password' => '1234',
