@@ -29,6 +29,14 @@ class TareasProduccionTableSeeder extends Seeder
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
             array('id' => 3,
+                  'name'=>'Revisar cortes de audio',
+                  'cargo_id' => 2,      // jefe-dpa
+                  'arch_in_id' => 1,    // Guion Audio
+                  'arch_out_id' => 2,   // Cortes Audio                    
+                  'created_at' => date('Y-m-d G:i:s'), 
+                  'updated_at' => date('Y-m-d G:i:s')
+                 ),            
+            array('id' => 4,
                   'name'=>'Asignar Disenador Grafico',
                   'cargo_id' => 3,      // jefe-dm
                   'arch_in_id' => 3,    // Guiones PPT  
@@ -36,7 +44,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 4,
+            array('id' => 5,
                   'name'=>'Realizar presentacion estatica',
                   'cargo_id' => 8,      // disenador-grafico
                   'arch_in_id' => 3,    // Guiones PPT
@@ -44,7 +52,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 5,
+            array('id' => 6,
                   'name'=>'Revisar presentacion estatica',
                   'cargo_id' => 3,      // jefe-dm
                   'arch_in_id' => 4,    // PPT Estatico  
@@ -52,7 +60,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 6,
+            array('id' => 7,
                   'name'=>'Revisar presentacion estatica final',
                   'cargo_id' => 5,      // edumatico
                   'arch_in_id' => 4,    // PPT Estatico  
@@ -60,7 +68,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 7,
+            array('id' => 8,
                   'name'=>'Asignar Sincronizador',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 5,    // Cortes Audio + PPT Estatico
@@ -68,7 +76,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 8,
+            array('id' => 9,
                   'name'=>'Realizar animaciones de laminas',
                   'cargo_id' => 7,	    // sincronizador
                   'arch_in_id' => 5,    // Cortes Audio + PPT Estatico
@@ -76,7 +84,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 9,
+            array('id' => 10,
                   'name'=>'Revisar presentacion animada',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 6,    // PPT Animado
@@ -84,7 +92,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 10,
+            array('id' => 11,
                   'name'=>'Generar HTML5',
                   'cargo_id' => 7,	    // sincronizador
                   'arch_in_id' => 6,    // PPT Animado  
@@ -92,7 +100,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),
-            array('id' => 11,
+            array('id' => 12,
                   'name'=>'Revisar HTML5',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 7,    // HTML5                
@@ -100,7 +108,7 @@ class TareasProduccionTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),            
-            array('id' => 12,
+            array('id' => 13,
                   'name'=>'Revisar version final',
                   'cargo_id' => 5,	    // edumatico
                   'arch_in_id' => 7,    // HTML5                
