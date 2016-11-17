@@ -5,7 +5,4 @@
     <!-- Panel de tareas -->
     @include('roles.panel-tareas')
 
-  <!-- Panel de administracion -->
-  <!-- soon -->
-
 @stop

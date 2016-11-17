@@ -38,7 +38,7 @@ class CargosTableSeeder extends Seeder
                  ),                 
             array('id' => 5,
                   'name'=>'Edumatico',
-                  'rol' => 'Worker',
+                  'rol' => 'Expert',
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),                
