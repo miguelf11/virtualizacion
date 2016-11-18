@@ -145,67 +145,13 @@
         <!-- Modals -->
 
         <!-- Alertas Modal -->
-        <div id= {{ $alertasModalId }} class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Alertas</h4>
-              </div>
-              <div class="modal-body">
-                @foreach($tarea->alertas as $alerta)                            
-                  <p>{{ $alerta->title }}</p>
-                  <p>{{ $alerta->data }}</p>
-                @endforeach  
-              </div>     
-            </div>
-          </div>
-        </div>
+        @include('modals.alerts')
         
         <!-- Observaciones Modal -->
-        <div id= {{ $obsModalId }} class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Observaciones</h4>
-              </div>
-              <div class="modal-body">
-                @foreach($tarea->observaciones as $obs)          
-                  <p>{{ $obs->title }}</p>
-                  <p>{{ $obs->data }}</p>
-                @endforeach  
-              </div>     
-            </div>
-          </div>
-        </div>        
+        @include('modals.obs')
 
         <!-- Enviar Modal -->
-        <div id= {{ $enviarModalId }} class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Enviar Tarea</h4>
-            </div>
-            <div class="modal-body">
-              <h5>Subir Archivo</h5>
-                <form action="">
-                  <input type="file" name="out" accept="">
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
-            </div>
-          </div>
-        </div>
-      </div>        
+        @include('modals.sends')
 
       @endforeach    
     </tbody>

@@ -15,7 +15,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 100,
                   'type'=>'Produccion',
                   'status' => 'Activa',	    
-                  't_prod_id' => 8, 	// Realizar animaciones de laminas                
+                  't_prod_id' => 9, 	// Realizar animaciones de laminas                
                   'user_id' => 100,       // @sincronizador                   
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -23,7 +23,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 200,
                   'type'=>'Produccion',
                   'status' => 'En Revision',	    
-                  't_prod_id' => 8,    // Realizar animaciones de laminas
+                  't_prod_id' => 9,    // Realizar animaciones de laminas
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -31,7 +31,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 300,
                   'type'=>'Produccion',
                   'status' => 'Modificar',	    
-                  't_prod_id' => 10,   // Generar HTML5                   
+                  't_prod_id' => 11,   // Generar HTML5                   
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -39,7 +39,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 400,
                   'type'=>'Produccion',
                   'status' => 'Por Aprobar',	    
-                  't_prod_id' => 8,    // Realizar animaciones de laminas                 
+                  't_prod_id' => 9,    // Realizar animaciones de laminas                 
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -47,7 +47,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 500,
                   'type'=>'Produccion',
                   'status' => 'Aprobada',     
-                  't_prod_id' => 8,    // Realizar animaciones de laminas
+                  't_prod_id' => 9,    // Realizar animaciones de laminas
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -55,7 +55,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 600,
                   'type'=>'Produccion',
                   'status' => 'Aprobada',     
-                  't_prod_id' => 10,   // Generar HTML5                   
+                  't_prod_id' => 11,   // Generar HTML5                   
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
@@ -63,7 +63,7 @@ class TareasTableSeeder extends Seeder
             array('id' => 700,
                   'type'=>'Produccion',
                   'status' => 'Aprobada',     
-                  't_prod_id' => 8,    // Realizar animaciones de laminas                 
+                  't_prod_id' => 9,    // Realizar animaciones de laminas                 
                   'user_id' => 100,      // @sincronizador                
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
