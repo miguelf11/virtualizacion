@@ -17,8 +17,8 @@ class CreateTareasProducionTable extends Migration
             $table->string('name');
             $table->string('descr')->nullable();
             $table->unsignedInteger('cargo_id');      // foreign key => cargos                        
-            $table->unsignedInteger('arch_in_id');    // foreign key => archivos_produccion 
-            $table->unsignedInteger('arch_out_id');   // foreign key => archivos_produccion
+            $table->unsignedInteger('arch_in_id')->nullable();    // foreign key => archivos_produccion 
+            $table->unsignedInteger('arch_out_id')->nullable();   // foreign key => archivos_produccion
             $table->timestamps();
         }); 
     }

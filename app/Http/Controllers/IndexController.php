@@ -59,6 +59,11 @@ class IndexController extends Controller
         return Redirect::to('/');   
     }
 
+    public function recover_psw()
+    {
+        return  view('recover_password');
+    }
+
 
 
 

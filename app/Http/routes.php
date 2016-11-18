@@ -13,10 +13,15 @@
 
 Route::resource('backdoor', 'BackdoorController');
 
+
 Route::resource('/', 'IndexController');
+Route::get('/recuperar-contraseña', 'IndexController@recover_psw'); 
 Route::get('/principal', 'IndexController@principal');
 Route::resource('logout', 'IndexController@logout');
 
+
+
+Route::get('/sendpassword','UserController@send_psw'); 
 Route::resource('admin', 'UserController');
 
 Route::resource('carrera','CarreraController');
@@ -35,3 +40,11 @@ Route::get('/worker/{user_id}', 'WorkerController@index');
 Route::get('/manager/{user_id}', 'ManagerController@index');
 //Route::get('/director/{user_id}', 'DirectorController@index');
 //Route::get('/expert/{user_id}', 'ExpertController@index');
+
+
+get('/test-email', function() {
+    Mail::send("emails.prueba", [], function($message) {
+        $message->to("miguelachof11@gmail.com", "Miguel")
+        ->subject("Bienvenido a Aprendible!");
+    });
+});
