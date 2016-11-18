@@ -48,3 +48,6 @@ get('/test-email', function() {
         ->subject("Bienvenido a Aprendible!");
     });
 });
+
+Route::post('/flow', 'FlowController@direct');
+
