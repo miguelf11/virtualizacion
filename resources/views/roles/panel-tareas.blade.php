@@ -26,7 +26,7 @@
           <!-- Alertas -->
           <td class="text-center">         
           @if($alertasModalId = "#alertasModal_" . $tarea->id) @endif                 
-          @if($tarea->status == 'Aprobada')            
+          @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada')            
             <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target= {{ $alertasModalId }}>
           @else              
             <button type="button" class="btn btn-default" data-toggle="modal" data-target={{ $alertasModalId }}>
@@ -39,7 +39,7 @@
           <!-- Observaciones -->
           <td class="text-center">
           @if($obsModalId = "#obsModal_" . $tarea->id) @endif                 
-          @if($tarea->status == 'Aprobada')
+          @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada')
             <button type="button" class="disabled btn btn-default" data-toggle="modal" data-target= {{ $obsModalId }}>
           @else              
             <button type="button" class="btn btn-default" data-toggle="modal" data-target= {{ $obsModalId }}>
@@ -55,17 +55,17 @@
               <strong>{{ $tarea->status }}</strong>
             </td>
             
-          @elseif($tarea->status == 'En Revision' || $tarea->status == 'Por Aprobar' || $tarea->status == 'En Espera')
+          @elseif($tarea->status == 'En Revision')
             <td class="text-center warning">
               {{ $tarea->status }}
             </td>                
 
-          @elseif($tarea->status == 'Modificar' || $tarea->status == 'En Correccion')
+          @elseif($tarea->status == 'Modificar')
             <td class="text-center danger">
               <strong>{{ $tarea->status }}</strong>
             </td>                
               
-          @elseif($tarea->status == 'Aprobada')
+          @elseif($tarea->status == 'Aprobada' || $tarea->status == 'Completada')
             <td class="text-center success">
               {{ $tarea->status }}
             </td>                
@@ -75,7 +75,7 @@
           <td class="text-center">
             <div class="dropdown">
 
-            @if($tarea->status == 'Aprobada')
+            @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada')
               <button class="disabled btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
             @else              
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -115,7 +115,7 @@
           <!-- Entrada -->
           <td class="text-center">
             <div class="dropdown">
-            @if($tarea->status == 'Aprobada')
+            @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada')
               <button class="disabled btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
             @else  
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

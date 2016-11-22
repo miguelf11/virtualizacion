@@ -41,7 +41,7 @@ class TareasTableSeeder extends Seeder
                  ),
             array('id' => 400,
                   'type'=>'Produccion',
-                  'status' => 'Por Aprobar',	    
+                  'status' => 'En Revision',	    
                   't_prod_id' => 9,    // Realizar animaciones de laminas                 
                   'user_id' => 100,    // @sincronizador                
                   'leccion_id' => 100, 
