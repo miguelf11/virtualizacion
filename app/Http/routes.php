@@ -42,9 +42,9 @@ Route::get('/manager/{user_id}', 'ManagerController@index');
 //Route::get('/expert/{user_id}', 'ExpertController@index');
 
 
-get('/test-email', function() {
+Route::get('/test-email', function() {
     Mail::send("emails.prueba", [], function($message) {
-        $message->to("miguelachof11@gmail.com", "Miguel")
+        $message->to("miguel.figueira16@gmail.com", "Miguel")
         ->subject("Bienvenido a Aprendible!");
     });
 });

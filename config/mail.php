@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'noreply'],
+    'from' => ['address' => 'miguel.figueira16@gmail.com', 'name' => 'noreply'],
 
     /*
     |--------------------------------------------------------------------------

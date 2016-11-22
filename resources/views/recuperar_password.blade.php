@@ -18,7 +18,7 @@
                            {{ Session::get('message-error2') }}
                     </div>
                 @endif
-            {!! Form::open(['route'=>'/sendpws', 'method'=>'post'])!!}
+            {!! Form::open(['route'=>'/sendpassword', 'method'=>'post'])!!}
                 <table id="form">
                     <tr>
                         <td>
