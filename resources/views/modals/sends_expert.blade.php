@@ -15,16 +15,16 @@
         <!-- Revisar presentación estática final -->
         @if($tareaNum == 7)
 
-          <form method="post" action="/flow">
+          <form method="post" action="/flow/{{ $tarea->id }}">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
 
             <div class="form-group">
               <label>Status</label>
               <div class="radio">
-                <label><input type="radio" name="optradio">Aprobada</label>
+                <label><input type="radio" name="accept">Aprobada</label>
               </div>
               <div class="radio">
-                <label><input type="radio" name="optradio">Rechazada</label>
+                <label><input type="radio" name="reject">Rechazada</label>
               </div>
             </div>
 
@@ -37,33 +37,33 @@
 
             <hr>
             <div class="form-group">                   
-              <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>                  
           </form>             
 
         <!-- Revisar versión final -->
         @elseif($tareaNum == 13)
 
-          <form method="post" action="/flow">
+          <form method="post" action="/flow/{{ $tarea->id }}">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
 
             <div class="form-group">
               <label>Status</label>
               <div class="radio">
-                <label><input type="radio" name="optradio">Aprobada</label>
+                <label><input type="radio" name="accept">Aprobada</label>
               </div>
               <div class="radio">
-                <label><input type="radio" name="optradio">Rechazada</label>
+                <label><input type="radio" name="reject">Rechazada</label>
               </div>
             </div> 
 
             <div class="form-group">
               <label>Tipo de Falla</label>
               <div class="radio">
-                <label><input type="radio" name="optradio">Animación</label>
+                <label><input type="radio" name="animacion">Animación</label>
               </div>
               <div class="radio">
-                <label><input type="radio" name="optradio">HTML5</label>
+                <label><input type="radio" name="html5">HTML5</label>
               </div>              
             </div>  
 
@@ -76,7 +76,7 @@
 
             <hr>
             <div class="form-group">                   
-              <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>                                                    
         </form>             
 

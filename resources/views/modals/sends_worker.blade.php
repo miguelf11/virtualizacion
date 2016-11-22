@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
 
-        <form method="post" action="/flow">
+        <form method="post" action="/flow/{{ $tarea->id }}">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
               
           <div class="form-group">
@@ -19,10 +19,10 @@
             
           <hr>
           <div class="form-group">                   
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
           </div>
         </form> 
-
+        
       </div>     
     </div>
   </div>

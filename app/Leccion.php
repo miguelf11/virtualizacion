@@ -34,4 +34,14 @@ class Leccion extends Model
     {
         return $this->belongsTo('App\TareasProduccion');
     }
+
+    public function forward()
+    {
+        
+    }
+
+    public function backward()
+    {    
+
+    }    
 }

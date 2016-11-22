@@ -17,7 +17,7 @@
  			    <!-- Asignar Tecnico de Audio -->
           @if($tareaNum == 1)
               
-            <form method="post" action="/flow">
+            <form method="post" action="/flow/{{ $tarea->id }}">
               <input type="hidden" name="_token" value="{{csrf_token()}}">
 
               <div class="form-group">
@@ -40,14 +40,14 @@
 
               <hr>
               <div class="form-group">                   
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
               </div>
             </form> 
 
           <!-- Asignar Diseñador Gráfico -->                                   
           @elseif($tareaNum == 4)
               
-            <form method="post" action="/flow">
+            <form method="post" action="/flow/{{ $tarea->id }}">
               <input type="hidden" name="_token" value="{{csrf_token()}}">
 
               <div class="form-group">
@@ -70,14 +70,14 @@
 
               <hr>
               <div class="form-group">                   
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
               </div>                
             </form> 
 
           <!-- Asignar Sincronizador -->                                   
           @elseif($tareaNum == 8)
               
-              <form method="post" action="/flow">
+              <form method="post" action="/flow/{{ $tarea->id }}">
               <input type="hidden" name="_token" value="{{csrf_token()}}">
 
               <div class="form-group">
@@ -100,7 +100,7 @@
 
               <hr>
               <div class="form-group">                   
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
               </div>                                                  
             </form> 
 
@@ -108,16 +108,16 @@
 
 		    @elseif($tareaType == "Revision")
 
-			    <form method="post" action="/flow">
+			    <form method="post" action="/flow/{{ $tarea->id }}">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
       
             <div class="form-group">
               <label>Status</label>
               <div class="radio">
-                <label><input type="radio" name="optradio">Aprobada</label>
+                <label><input type="radio" name="accept">Aprobada</label>
               </div>
               <div class="radio">
-                <label><input type="radio" name="optradio">Rechazada</label>
+                <label><input type="radio" name="reject">Rechazada</label>
               </div>
             </div>  
 
@@ -130,7 +130,7 @@
 
             <hr>
             <div class="form-group">                   
-              <button type="submit" class="btn btn-primary" data-dismiss="modal">Enviar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>                                                                  
           </form>
 
