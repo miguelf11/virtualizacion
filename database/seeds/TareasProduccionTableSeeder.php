@@ -14,6 +14,7 @@ class TareasProduccionTableSeeder extends Seeder
         $tareas = array(
             array('id' => 1,
                   'name'=>'Asignar Tecnico de Audio',
+                  'type'=>'Asignacion',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 1,    // Guion Audio  
                   'arch_out_id' => 1,   // Guion Audio
@@ -22,6 +23,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 2,
                   'name'=>'Generar cortes de audio',
+                  'type'=>'Accion',
                   'cargo_id' => 6,	    // tecnico-audio
                   'arch_in_id' => 1,    // Guion Audio
                   'arch_out_id' => 2,   // Cortes Audio                    
@@ -30,6 +32,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 3,
                   'name'=>'Revisar cortes de audio',
+                  'type'=>'Revision',
                   'cargo_id' => 2,      // jefe-dpa
                   'arch_in_id' => 1,    // Guion Audio
                   'arch_out_id' => 2,   // Cortes Audio                    
@@ -38,6 +41,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),            
             array('id' => 4,
                   'name'=>'Asignar Disenador Grafico',
+                  'type'=>'Asignacion',
                   'cargo_id' => 3,      // jefe-dm
                   'arch_in_id' => 3,    // Guiones PPT  
                   'arch_out_id' => 3,   // Guiones PPT                 
@@ -46,6 +50,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 5,
                   'name'=>'Realizar presentacion estatica',
+                  'type'=>'Accion',
                   'cargo_id' => 8,      // disenador-grafico
                   'arch_in_id' => 3,    // Guiones PPT
                   'arch_out_id' => 4,   // PPT Estatico                 
@@ -54,6 +59,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 6,
                   'name'=>'Revisar presentacion estatica',
+                  'type'=>'Revision',
                   'cargo_id' => 3,      // jefe-dm
                   'arch_in_id' => 4,    // PPT Estatico  
                   'arch_out_id' => 4,   // PPT Estatico                 
@@ -62,6 +68,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 7,
                   'name'=>'Revisar presentacion estatica final',
+                  'type'=>'Revision',
                   'cargo_id' => 5,      // edumatico
                   'arch_in_id' => 4,    // PPT Estatico  
                   'arch_out_id' => 4,   // PPT Estatico 
@@ -70,6 +77,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 8,
                   'name'=>'Asignar Sincronizador',
+                  'type'=>'Asignacion',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 5,    // Cortes Audio + PPT Estatico
                   'arch_out_id' => 5,   // Cortes Audio + PPT Estatico  
@@ -78,6 +86,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 9,
                   'name'=>'Realizar animaciones de laminas',
+                  'type'=>'Accion',
                   'cargo_id' => 7,	    // sincronizador
                   'arch_in_id' => 5,    // Cortes Audio + PPT Estatico
                   'arch_out_id' => 6,   // PPT Animado                 
@@ -86,6 +95,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 10,
                   'name'=>'Revisar presentacion animada',
+                  'type'=>'Revision',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 6,    // PPT Animado
                   'arch_out_id' => 6,   // PPT Animado                 
@@ -94,6 +104,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 11,
                   'name'=>'Generar HTML5',
+                  'type'=>'Accion',
                   'cargo_id' => 7,	    // sincronizador
                   'arch_in_id' => 6,    // PPT Animado  
                   'arch_out_id' => 7,   // HTML5                
@@ -102,6 +113,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 12,
                   'name'=>'Revisar HTML5',
+                  'type'=>'Revision',
                   'cargo_id' => 2,	    // jefe-dpa
                   'arch_in_id' => 7,    // HTML5                
                   'arch_out_id' => 7,   // HTML5                                 
@@ -110,6 +122,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),            
             array('id' => 13,
                   'name'=>'Revisar version final',
+                  'type'=>'Revision',
                   'cargo_id' => 5,	    // edumatico
                   'arch_in_id' => 7,    // HTML5                
                   'arch_out_id' => 7,   // HTML5                                 

@@ -36,6 +36,7 @@ Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'CursoController@getM
 Route::resource('curso','CursoController');
 
 
+
 Route::get('/worker/{user_id}', 'WorkerController@index');
 Route::get('/manager/{user_id}', 'ManagerController@index');
 //Route::get('/director/{user_id}', 'DirectorController@index');
@@ -49,5 +50,10 @@ Route::get('/test-email', function() {
     });
 });
 
-Route::post('/flow', 'FlowController@direct');
+Route::get('/worker/{user_id}', 'WorkerController@index');
+Route::get('/manager/{user_id}', 'ManagerController@index');
+//Route::get('/director/{user_id}', 'DirectorController@index');
+//Route::get('/expert/{user_id}', 'ExpertController@index');
+
+Route::post('/flow/{tarea_id}', 'FlowController@direct');
 
