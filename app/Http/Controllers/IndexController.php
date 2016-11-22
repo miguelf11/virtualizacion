@@ -37,10 +37,19 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         if(Auth::attempt(['email'=> $request['email'], 'password' => $request['password']])){
-            if(Auth::user()->cargo_id == '1'){
+
+            $cargo_id =  Auth::user()->cargo_id;
+
+
+            $cargo = \App\Cargo::find($cargo_id);
+            $rol = $cargo['rol'];
+
+            if($rol == "Admin"){
                 return Redirect::to('admin');
-            }else{
-                return Redirect::to('/principal');
+            }elseif ($rol == "Worker"){
+                return redirect()->action('WorkerController@index',Auth::user()->id);
+            }elseif($rol == "Manager"){
+                return redirect()->action('ManagerController@index',Auth::user()->id);
             }
         }else{
             Session::flash('message-error', "Sus datos son incorrectos");

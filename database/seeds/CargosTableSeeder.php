@@ -59,7 +59,13 @@ class CargosTableSeeder extends Seeder
                   'rol' => 'Worker',
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
-                 )             
+                 ),
+            array('id' => 9,
+                  'name' => 'Administrador',
+                  'rol' => 'Admin',
+                  'created_at' => date('Y-m-d G:i:s'), 
+                  'updated_at' => date('Y-m-d G:i:s')
+                  )            
         );        
         DB::table('cargos')->insert($cargos); 
     }
