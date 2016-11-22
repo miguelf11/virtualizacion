@@ -151,8 +151,16 @@
         @include('modals.obs')
 
         <!-- Enviar Modal -->
-        @include('modals.sends')
+        @if($role = $tarea->user->cargo->rol) @endif
 
+        @if($role == "Worker")
+          @include('modals.sends_worker')
+        @elseif($role == "Manager")  
+          @include('modals.sends_manager')
+        @elseif($role == "Expert")
+          @include('modals.sends_expert')  
+        @endif  
+          
       @endforeach    
     </tbody>
   </table>
