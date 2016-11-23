@@ -35,17 +35,21 @@ Route::any('curso/delete',array('as'=>'rmCurso','uses'=> 'CursoController@rmCurs
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'CursoController@getMat'));
 Route::resource('curso','CursoController');
 
-get('/test-email', function() {
-    Mail::send("emails.prueba", [], function($message) {
-        $message->to("miguelachof11@gmail.com", "Miguel")
-        ->subject("Bienvenido a Aprendible!");
-    });
-});
+
 
 Route::get('/worker/{user_id}', 'WorkerController@index');
 Route::get('/manager/{user_id}', 'ManagerController@index');
 Route::get('/expert/{user_id}', 'ExpertController@index');
 //Route::get('/director/{user_id}', 'DirectorController@index');
+
+
+Route::get('/test-email', function() {
+    Mail::send("emails.prueba", [], function($message) {
+        $message->to("miguel.figueira16@gmail.com", "Miguel")
+        ->subject("Bienvenido a Aprendible!");
+    });
+});
+
 
 Route::post('/flow/{tarea_id}', 'FlowController@direct');
 

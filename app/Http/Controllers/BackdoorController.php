@@ -50,7 +50,7 @@ class BackdoorController extends Controller
         \App\User::create([
             'name'=> $request['name'],
             'email'=> $request['email'],
-            'cargo_id'=> '1',
+            'cargo_id'=> '9',
             'password'=> $request['password'],
             ]);
         return Redirect::to('/');

@@ -1,4 +1,5 @@
 @extends('layouts.admin_layout')
+@section('title', 'Cargos')
 @section('content')		
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 	<!-- Validar Errores en el servidor-->
@@ -45,7 +46,7 @@
                         	{!! Form::label('Rol')!!}
 							{!! Form::select('rol',
 								array(
-								'Worker' => 'Técnico',
+								'Worker' => 'Worker',
 								'Manager' => 'Manager',
 								'Director' => 'Director'), null, ['class'=>'form-control']
                         	)!!}		
@@ -100,11 +101,17 @@
 					      		{!! Form::label('Nombre')!!}
 								{!! Form::text('name',$cargo->name,['class'=>'form-control'])!!}
 
-								{!! Form::label('Tipo')!!}
-								{!! Form::text('type',$cargo->rol,['class'=>'form-control'])!!}
+								{!! Form::label('Descripción')!!}
+								{!! Form::text('descr',$cargo->descr,['class'=>'form-control'])!!}
 
-								{!! Form::label('Duración')!!}
-								{!! Form::text('duration',$cargo->duration,['class'=>'form-control'])!!}
+
+								{!! Form::label('Rol')!!}
+								{!! Form::select('rol',
+									array(
+									'Worker' => 'Worker',
+									'Manager' => 'Manager',
+									'Director' => 'Director'), $cargo->rol, ['class'=>'form-control']
+                        		)!!}
 
 					      </div>
 					      <div class="modal-footer">
