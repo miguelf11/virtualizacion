@@ -7,19 +7,19 @@ use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ManagerController extends Controller
+class ExpertController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */    
+     */
     public function index($user_id)
-    {   
+    {
         $user = User::find($user_id);
         $tareas = $user->tareas;               
-        return view('roles.manager', compact('tareas'));
-    }    
+        return view('roles.expert', compact('tareas'));
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -1,5 +1,5 @@
 @extends('layouts.dashboard_layout')
-@section('title', 'Manager')
+@section('title', 'Worker')
 @section('content')
 
     <!-- Panel de tareas -->

@@ -68,7 +68,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),
             array('id' => 7,
                   'name'=>'Revisar presentacion estatica final',
-                  'type'=>'Revision',
+                  'type'=>'Revision-Final',
                   'cargo_id' => 5,      // edumatico
                   'arch_in_id' => 4,    // PPT Estatico  
                   'arch_out_id' => 4,   // PPT Estatico 
@@ -122,7 +122,7 @@ class TareasProduccionTableSeeder extends Seeder
                  ),            
             array('id' => 13,
                   'name'=>'Revisar version final',
-                  'type'=>'Revision',
+                  'type'=>'Revision-Final',
                   'cargo_id' => 5,	    // edumatico
                   'arch_in_id' => 7,    // HTML5                
                   'arch_out_id' => 7,   // HTML5                                 

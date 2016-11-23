@@ -16,7 +16,7 @@ class CreateTareasProducionTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('descr')->nullable();
-            $table->enum('type', ['Accion', 'Asignacion', 'Revision']);
+            $table->enum('type', ['Accion', 'Asignacion', 'Revision', 'Revision-Final']);
             $table->unsignedInteger('cargo_id');                  // foreign key => cargos                        
             $table->unsignedInteger('arch_in_id')->nullable();    // foreign key => archivos_produccion 
             $table->unsignedInteger('arch_out_id')->nullable();   // foreign key => archivos_produccion

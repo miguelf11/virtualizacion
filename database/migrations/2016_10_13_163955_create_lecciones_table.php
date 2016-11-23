@@ -19,7 +19,7 @@ class CreateLeccionesTable extends Migration
             $table->string('code')->nullable();
             $table->enum('status', ['Activa', 'Completada']);
             $table->boolean('audio');
-            $table->unsignedInteger('t_actual_id')->nullable();         // foreign key => tareas_produccion
+            $table->unsignedInteger('t_actual_id')->nullable();     // foreign key => tareas_produccion
             $table->unsignedInteger('t_actual_2_id')->nullable();   // foreign key => tareas_produccion
             $table->unsignedInteger('curso_id');                    // foreign key => cursos           
             $table->timestamps();

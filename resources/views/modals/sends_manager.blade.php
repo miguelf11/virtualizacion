@@ -22,22 +22,14 @@
 
               <div class="form-group">
                 <label>Seleccionar Técnico de Audio</label>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Técnicos de Audio
-                    <span class="caret"></span>                    
-                  </button>
-                  <ul class="dropdown-menu">
-
-                    <!-- Seleccionar Técnicos de Audio -->
-                    @if($tecnicosAudio = DB::table('users')->where('cargo_id', '=', 6)->get()) @endif
-                    @foreach($tecnicosAudio as $tecnico)
-                      <li><a href="#">{{ $tecnico->name }}</a></li>
-                    @endforeach  
-
-                  </ul>
-                </div>
-              </div>
-
+                <select class="form-control" name="worker">
+                  <!-- Seleccionar Técnicos de Audio -->
+                  @if($tecnicosAudio = DB::table('users')->where('cargo_id', '=', 6)->get()) @endif
+                  @foreach($tecnicosAudio as $tecnico)
+                    <option>{{ $tecnico->name }}</option>                      
+                  @endforeach  
+                </select>
+              </div>            
               <hr>
               <div class="form-group">                   
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -52,22 +44,14 @@
 
               <div class="form-group">
                 <label>Seleccionar Diseñador Gráfico</label>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Diseñadores Gráficos
-                    <span class="caret"></span>                    
-                  </button>
-                  <ul class="dropdown-menu">
-
-                    <!-- Seleccionar Diseñadores Gráficos -->
-                    @if($disenadores = DB::table('users')->where('cargo_id', '=', 8)->get()) @endif
-                    @foreach($disenadores as $disenador)
-                      <li><a href="#">{{ $disenador->name }}</a></li>
-                    @endforeach  
-                    
-                  </ul>
-                </div>
-              </div>
-
+                <select class="form-control" name="worker">
+                  <!-- Seleccionar Diseñadores Gráficos -->
+                  @if($disenadores = DB::table('users')->where('cargo_id', '=', 8)->get()) @endif
+                  @foreach($disenadores as $disenador)
+                    <option>{{ $disenador->name }}</option>                      
+                  @endforeach                      
+                </select>
+              </div>              
               <hr>
               <div class="form-group">                   
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -77,32 +61,24 @@
           <!-- Asignar Sincronizador -->                                   
           @elseif($tareaNum == 8)
               
-              <form method="post" action="/flow/{{ $tarea->id }}">
+            <form method="post" action="/flow/{{ $tarea->id }}">
               <input type="hidden" name="_token" value="{{csrf_token()}}">
 
               <div class="form-group">
                 <label>Seleccionar Sincronizador</label>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sincronizadores
-                    <span class="caret"></span>                    
-                  </button>
-                  <ul class="dropdown-menu">
-
-                    <!-- Seleccionar Sincronizadores -->
-                    @if($sincronizadores = DB::table('users')->where('cargo_id', '=', 7)->get()) @endif
-                    @foreach($sincronizadores as $sincronizador)
-                      <li><a href="#">{{ $sincronizador->name }}</a></li>
-                    @endforeach  
-                    
-                  </ul>
-                </div>
+                <select class="form-control" name="worker">
+                  <!-- Seleccionar Sincronizadores -->
+                  @if($sincronizadores = DB::table('users')->where('cargo_id', '=', 7)->get()) @endif
+                  @foreach($sincronizadores as $sincronizador)
+                    <option>{{ $sincronizador->name }}</option>
+                  @endforeach  
+                </select>      
               </div>
-
               <hr>
               <div class="form-group">                   
                 <button type="submit" class="btn btn-primary">Enviar</button>
-              </div>                                                  
-            </form> 
+              </div>
+            </form>
 
           @endif  
 

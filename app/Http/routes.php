@@ -44,8 +44,8 @@ get('/test-email', function() {
 
 Route::get('/worker/{user_id}', 'WorkerController@index');
 Route::get('/manager/{user_id}', 'ManagerController@index');
+Route::get('/expert/{user_id}', 'ExpertController@index');
 //Route::get('/director/{user_id}', 'DirectorController@index');
-//Route::get('/expert/{user_id}', 'ExpertController@index');
 
 Route::post('/flow/{tarea_id}', 'FlowController@direct');
 

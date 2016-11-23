@@ -23,12 +23,16 @@ class FlowController extends Controller
         {    
             $leccion->backward();
         }
-        // Forward: $tareaType == "Accion"|"Asignacion" or $tareaType == "Revision" & accept == "on"    
-        else
+        // Forward 
+        elseif($tareaType == "Asignacion")
         {
-            $leccion->forward();
+            $leccion->forward($tarea, $request->worker);
         }
-        
-        return back();              
+        elseif($tareaType == "Accion" || $tareaType == "Revision" && $request->accept == "on" || $tareaType == "Revision-Final" && $request->accept == "on")
+        {
+            $leccion->forward($tarea, NULL);
+        }    
+                
+        return back();
     }
 }
