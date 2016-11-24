@@ -50,6 +50,10 @@ class IndexController extends Controller
                 return redirect()->action('WorkerController@index',Auth::user()->id);
             }elseif($rol == "Manager"){
                 return redirect()->action('ManagerController@index',Auth::user()->id);
+            }elseif($rol == "Expert"){
+                return redirect()->action('ExpertController@index',Auth::user()->id);
+            }elseif($rol == "Director"){
+                return redirect()->action('DirectorController@index',Auth::user()->id);
             }
         }else{
             Session::flash('message-error', "Sus datos son incorrectos");
