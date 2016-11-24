@@ -123,6 +123,14 @@ class UsersTableSeeder extends Seeder
                 'cargo_id' => 8,    // Disenador-Grafico
                 'created_at' => date('Y-m-d G:i:s'), 
                 'updated_at' => date('Y-m-d G:i:s')    
+          ),
+          array('id' => 1500,
+                'name'=>'Admin',                  
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('admin'),
+                'cargo_id' => 9,    // Admin
+                'created_at' => date('Y-m-d G:i:s'), 
+                'updated_at' => date('Y-m-d G:i:s')    
           ),                    
         );
         DB::table('users')->insert($users);
