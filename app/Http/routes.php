@@ -30,6 +30,8 @@ Route::resource('cargo','CargoController');
 
 Route::resource('leccion','LeccionController');
 
+
+Route::get('/download/{file}', 'CursoController@getDownload');
 Route::any('/curso/add', array('as'=>'addCurso', 'uses'=>'CursoController@addCurso'));
 Route::any('curso/delete',array('as'=>'rmCurso','uses'=> 'CursoController@rmCurso'));
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'CursoController@getMat'));
@@ -52,4 +54,6 @@ Route::get('/test-email', function() {
 
 
 Route::post('/flow/{tarea_id}', 'FlowController@direct');
+
+
 

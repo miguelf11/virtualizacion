@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use Auth;
 use Session;
 use Redirect;
@@ -144,5 +145,11 @@ class CursoController extends Controller
         DB::table('carrera_curso')->where('carrera_id', '=', $request['carrera_id'])->where('curso_id','=',$request['curso_id'])->delete();
         Session::flash('message', 'Curso Borrado Correctamente');
         return redirect()->back();
+    }
+
+    public function getDownload($path)
+    {
+        $pathToFile=storage_path()."/app/".$path;
+        return response()->download($pathToFile);
     }
 }

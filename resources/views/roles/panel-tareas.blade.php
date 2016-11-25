@@ -1,5 +1,14 @@
 <div class="container">
-  <h1>{{ $tareas->first()->user->cargo->name }} - {{$tareas->first()->user->name}} </h1>
+  <div class= "row">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">     
+        <h1>{{ $tareas->first()->user->cargo->name }} - {{$tareas->first()->user->name}} </h1>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">     
+        <a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a>
+    </div>
+
+  </div>
+  
   <h3>Panel de Tareas</h3>
   <table class="table">
     <thead>
@@ -121,16 +130,11 @@
           <!-- Entrada -->
           <td class="text-center">
             <div class="dropdown">
-            @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada')
-              <button class="disabled btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            @else  
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            @if($tarea->status == 'Aprobada' || $tarea->status == 'Completada' || $tarea->path_in == NULL)
+              <button class="disabled btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> <span class="glyphicon glyphicon-chevron-down"></span></button>
+            @else
+              <a href="{{ URL::to( '/download/'.$tarea->path_in) }}"><span class="glyphicon glyphicon-chevron-down"></span> </a>
             @endif  
-                <span class="glyphicon glyphicon-chevron-down"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#"></a></li>                
-              </ul>
             </div>
           </td>
 

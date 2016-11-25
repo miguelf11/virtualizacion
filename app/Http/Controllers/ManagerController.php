@@ -86,4 +86,5 @@ class ManagerController extends Controller
     {
         //
     }
+
 }

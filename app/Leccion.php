@@ -35,7 +35,7 @@ class Leccion extends Model
         return $this->belongsTo('App\TareasProduccion');
     }
 
-    public function forward(Tarea $tareaOld, $workerName, $namefile)
+    public function forward(Tarea $tareaOld, $workerName)
     {     
         // Actualizar 'status' de tareas
         $tareaType = $tareaOld->t_prod->type;        
@@ -126,6 +126,7 @@ class Leccion extends Model
             $tareaNew->status = "Activa";
             $tareaNew->t_prod_id = $this->t_actual_id;
             $tareaNew->leccion_id = $this->id;
+            $tareaNew->path_in = $tareaOld->path_out;
             $tareaNew->user_id = $this->users()->where('cargo_id', $tareaNew->t_prod->cargo_id)->first()->id; 
             $this->tareas()->save($tareaNew);
 
