@@ -19,6 +19,7 @@ class FlowController extends Controller
         $tareaType = $tarea->t_prod->type;
         $leccion = $tarea->leccion;
 
+
         if ($request->file('out')){
             $file = $request->file('out');
             $nombre = Carbon::now()->second.$file->getClientOriginalName();
@@ -27,13 +28,21 @@ class FlowController extends Controller
         }
 
 
-
-        // Backward 
+        /* 
+         *  Backward 
+         */   
         if($tareaType == "Revision" && $request->reject == "on")
         {    
-            $leccion->backward();
+            $leccion->backward($tarea, $request->obs, NULL, NULL);
         }
-        // Forward 
+        elseif($tareaType == "Revision-Final" && $request->reject == "on")
+        {
+            $leccion->backward($tarea, $request->obs, $request->animacion, $request->html5);
+        }   
+
+        /* 
+         *  Forward
+         */   
         elseif($tareaType == "Asignacion")
         {
             $leccion->forward($tarea, $request->worker,$nombre);

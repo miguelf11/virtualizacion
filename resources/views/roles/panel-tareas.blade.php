@@ -69,6 +69,12 @@
             <td class="text-center success">
               {{ $tarea->status }}
             </td>                
+
+          @elseif($tarea->status == 'Rechazada')
+            <td class="text-center default">
+              <strong>{{ $tarea->status }}</strong>
+            </td>                
+
           @endif                      
 
           <!-- Intentos -->               
