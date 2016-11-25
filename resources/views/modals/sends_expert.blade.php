@@ -31,7 +31,7 @@
             <div class="form-group">
               <label>Observaciones</label>
               <div class="form-group">
-                <textarea class="form-control" rows="5"></textarea>
+                <textarea name="obs" class="form-control" rows="5"></textarea>
               </div>
             </div>
 
@@ -70,7 +70,7 @@
             <div class="form-group">                
               <label>Observaciones</label>
               <div class="form-group">
-                <textarea class="form-control" rows="5"></textarea>
+                <textarea name="obs" class="form-control" rows="5"></textarea>
               </div>
             </div>
 

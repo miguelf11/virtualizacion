@@ -146,8 +146,145 @@ class Leccion extends Model
         } 
     }    
 
-    public function backward()
-    {    
+    public function backward(Tarea $tarea, $obs, $animFail, $html5Fail)
+    {        
+        // Verificar si es la última tarea
+        if($this->t_actual_id != 13)
+        {    
+            $tareaType = $tarea->t_prod->type;        
 
+            // Ubicar tarea revisada
+            if($tareaType == "Revision")
+            {
+                $tareaPrevNum = $this->t_actual_id - 1;
+            }
+            elseif($tareaType == "Revision-Final")    
+            {
+                $tareaPrevNum = $this->t_actual_id - 2;   
+            }    
+
+            // Actualizar 'status' de la tarea revisada
+            $tareaPrev = $this->tareas()->where('t_prod_id', $tareaPrevNum)->first();
+            $tareaPrev->status = "Modificar";
+            $tareaPrev->save();
+
+            // Finalizar intento 
+            $intentoOld = Intento::where('tarea_id', $tareaPrev->id)->orderBy('created_at', 'desc')->first();            
+            $intentoOld->status = "Finalizado";
+            $intentoOld->save();
+
+            // Agregar observación
+            $obsNew = new Observacion;
+            $obsNew->title = "Observación";
+            $obsNew->data = $obs;
+            $obsNew->intento_id = $intentoOld->id;
+            $obsNew->save();            
+
+            // Generar nuevo intento
+            $intentoNew = new Intento;
+            $intentoNew->num = $intentoOld->num + 1;        
+            $intentoNew->status = "Activo";
+            $tareaPrev->intentos()->save($intentoNew);            
+
+            // Actualizar apuntador de la lección
+            if($tareaType == "Revision")
+            {
+                $this->t_actual_id--;
+                $this->save();
+            }
+            elseif($tareaType == "Revision-Final")    
+            {
+                $this->t_actual_id -= 2;
+                $this->save();
+            }                
+
+            // Actualizar 'status' de tarea
+            $tarea->status = "Completada";
+            $tarea->save();
+        }
+        // Revisar versión final (última tarea)
+        else
+        {
+            // Ubicar tarea a modificar 
+            if($animFail == "on")
+            {                                
+                // Actualizar 'status' de la tarea revisada
+                $tareaPrevNum = 9;
+                $tareaPrev = $this->tareas()->where('t_prod_id', $tareaPrevNum)->first();
+                $tareaPrev->status = "Modificar";
+                $tareaPrev->save();
+
+                // Finalizar intento
+                $intentoOld = Intento::where('tarea_id', $tareaPrev->id)->orderBy('created_at', 'desc')->first();
+                $intentoOld->status = "Finalizado";
+                $intentoOld->save();
+
+                // Agregar observación
+                $obsNew = new Observacion;
+                $obsNew->title = "Observación";
+                $obsNew->data = $obs;
+                $obsNew->intento_id = $intentoOld->id;
+                $obsNew->save();     
+
+                // Generar nuevo intento
+                $intentoNew = new Intento;
+                $intentoNew->num = $intentoOld->num + 1;        
+                $intentoNew->status = "Activo";
+                $tareaPrev->intentos()->save($intentoNew);                
+
+                // Actualizar apuntador de la lección
+                $this->t_actual_id = $tareaPrevNum;
+                $this->save();                
+
+                // Actualizar 'status' de la tarea 'flotante'
+                $tareaPrevNum = 11;
+                $tareaPrev = $this->tareas()->where('t_prod_id', $tareaPrevNum)->first();
+                $tareaPrev->status = "Rechazada";
+                $tareaPrev->save();
+
+                // Finalizar intento 
+                $intentoOld = Intento::where('tarea_id', $tareaPrev->id)->orderBy('created_at', 'desc')->first();
+                $intentoOld->status = "Finalizado";
+                $intentoOld->save();
+
+                // Actualizar 'status' de tarea
+                $tarea->status = "Completada";
+                $tarea->save();
+            }                
+            elseif($html5Fail == "on")    
+            {                                
+                // Actualizar 'status' de la tarea revisada
+                $tareaPrevNum = 11;
+                $tareaPrev = $this->tareas()->where('t_prod_id', $tareaPrevNum)->first();
+                $tareaPrev->status = "Modificar";
+                $tareaPrev->save();
+
+                // Finalizar intento
+                $intentoOld = Intento::where('tarea_id', $tareaPrev->id)->orderBy('created_at', 'desc')->first();
+                $intentoOld->status = "Finalizado";
+                $intentoOld->save();
+
+                // Agregar observación
+                $obsNew = new Observacion;
+                $obsNew->title = "Observación";
+                $obsNew->data = $obs;
+                $obsNew->intento_id = $intentoOld->id;
+                $obsNew->save();     
+
+                // Generar nuevo intento
+                $intentoNew = new Intento;
+                $intentoNew->num = $intentoOld->num + 1;        
+                $intentoNew->status = "Activo";
+                $tareaPrev->intentos()->save($intentoNew);                
+
+                // Actualizar apuntador de la lección
+                $this->t_actual_id = $tareaPrevNum;
+                $this->save();
+
+                // Actualizar 'status' de tarea
+                $tarea->status = "Completada";
+                $tarea->save();
+            }
+        }            
     }    
 }
