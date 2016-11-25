@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>{{ $tareas->first()->user->cargo->name }}</h1>
+  <h1>{{ $tareas->first()->user->cargo->name }} - {{$tareas->first()->user->name}} </h1>
   <h3>Panel de Tareas</h3>
   <table class="table">
     <thead>

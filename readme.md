@@ -22,3 +22,5 @@
 - 2. Diseño de la BD.
 - 3. Investigación y pruebas de conexión con las APIs de Google.
 
+
+Si tienes problemas con alǵun seeder usa ```composer dump-autoload ```

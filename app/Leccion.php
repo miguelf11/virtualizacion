@@ -35,7 +35,7 @@ class Leccion extends Model
         return $this->belongsTo('App\TareasProduccion');
     }
 
-    public function forward(Tarea $tareaOld, $workerName)
+    public function forward(Tarea $tareaOld, $workerName, $namefile)
     {     
         // Actualizar 'status' de tareas
         $tareaType = $tareaOld->t_prod->type;        

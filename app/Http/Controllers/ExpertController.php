@@ -18,7 +18,7 @@ class ExpertController extends Controller
     {
         $user = User::find($user_id);
         $tareas = $user->tareas;               
-        return view('roles.expert', compact('tareas'));
+        return view('roles.expert', compact('tareas','user'));
     }
 
     /**

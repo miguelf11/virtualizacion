@@ -32,8 +32,6 @@ class LeccionUserTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),                  
-
-
             array('leccion_id' => 200, 
                   'user_id' => 200,    // @jefe-dpa                                     
                   'created_at' => date('Y-m-d G:i:s'), 
@@ -54,8 +52,6 @@ class LeccionUserTableSeeder extends Seeder
                   'created_at' => date('Y-m-d G:i:s'), 
                   'updated_at' => date('Y-m-d G:i:s')
                  ),                  
-
-
             array('leccion_id' => 300, 
                   'user_id' => 200,    // @jefe-dpa                                     
                   'created_at' => date('Y-m-d G:i:s'), 

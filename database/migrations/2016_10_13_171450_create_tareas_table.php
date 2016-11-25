@@ -19,8 +19,11 @@ class CreateTareasTable extends Migration
             $table->enum('status', ['Activa', 'En Revision', 'Modificar', 'Aprobada', 'Completada', 'Rechazada']);            
             $table->unsignedInteger('t_prod_id');                  // foreign key => tareas_produccion
             $table->unsignedInteger('leccion_id')->nullable();     // foreign key => lecciones
-            $table->unsignedInteger('user_id');                    // foreign key => users           
+            $table->unsignedInteger('user_id');                     // foreign key => users
+            $table->string('path_in')->nullable();
+            $table->string('path_out')->nullable();           
             $table->timestamps();
+
         });
     }
 

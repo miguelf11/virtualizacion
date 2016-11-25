@@ -23,12 +23,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CarrerasTableSeeder::class);
         $this->call(CursosTableSeeder::class);
         $this->call(LeccionesTableSeeder::class);
-        $this->call(UsersTableSeeder::class);        
-        $this->call(LeccionUserTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(LeccionUserTableSeeder::class);        
         $this->call(TareasTableSeeder::class);        
         $this->call(IntentosTableSeeder::class);        
         $this->call(AlertasTableSeeder::class);        
-        $this->call(ObservacionesTableSeeder::class);        
+        $this->call(ObservacionesTableSeeder::class);
+
 
         Model::reguard();
     }
